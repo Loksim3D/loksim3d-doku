@@ -1,0 +1,633 @@
+\section{Versionshistorie}
+\subsection{Version 2.9.2}
+\subsubsection{Neue Funktionen}
+\begin{itemize}
+\item Zufallsdrehung bei Objekten auf Strecke möglich
+\item \hyperref[sec.editor.obj.logischeausdruecke]{Zeichenketten in logischen Ausdrücken}
+\item \hyperref[sec:editor-texturnutzung-optimieren]{Editor: Neue Funktion ''Texturnutzung optimieren''}
+\item Objekteditor: Neuer Dialog für Punkte zu Fläche hinzufügen
+\end{itemize}
+
+\subsubsection{Kleinere Änderungen}
+\begin{itemize}
+\item Indusi-Einstellung PZ80R wird automatisch auf PZB90 PZ80R umgestellt
+\item Kommandozeilen-Argument /renderstats:1 zeigt Anzahl von DrawCalls und Triangles
+\item Optimierung bei externen Objektmodellen wenn kein Alphakanal in der Textur verwendet wird
+\item \hyperref[sec:editor-logging]{Standardmäßiges Erstellen von Logs}
+\item Reihenfolge der Gleise bei Verwendung von verknüpften BÜs nicht mehr relevant
+\item Editor: FilePicture wird bei Speichern-Unter kopiert
+\item Editor: Dateien die über ''Doppelklick'' im LoksimEdit geöffnet werden, erscheinen in RecentFileList
+\item Editor: Beleuchtung mehr an Simulation angenähert
+\item Editor: Löschen in Baumansichten mittels ''Entf''
+\item Gruppenobjekteditor: Auswahl nach dem Löschen eines Objekts verbessert
+\item Fonteditor: Speichern-Unter bei Fonts überschreibt existierende Texturen nicht mehr
+\item PackageManager: Anzeige von Fehlern bei ''Installation Rückgängig machen''
+\end{itemize}
+
+
+\subsubsection{Fehlerkorrekturen}
+\begin{itemize}
+\item Bugfixes bei Sichtbarkeitssteuerung
+\item Bugfix Rotation Streckenobjekte
+
+\item ObjektEditor: Verschwinden von Objekten in seltenen Fällen
+\item ObjektEditor: Texturkoordinaten ''Rückseite einfügen''
+
+\item Streckeneditor: Setzen von Inhalt bei Textfeldern ohne Name bzw. bei Textfeldern mit dynamischer Sichtbarkeit
+\item Streckeneditor: BÜ bei welchem der Name Teil des Namens eines andere BÜs ist, kann nun auch im GUI angelegt werden
+\end{itemize}
+
+\subsection{Version 2.9.1}\hfill 11. Jänner 2015
+
+\subsubsection{Neue Funktionen}
+\begin{itemize}
+\item Streckeneditor: (Landschafts)objekte können nach Position sortiert werden
+\end{itemize}
+
+\subsubsection{Kleinere Änderungen}
+\begin{itemize}
+\item Optimierung Option ''Alle Texturen beim Start laden''
+\item Vergrößerung von Eingabefeldern im Editor: Neu-Dialog, Rail - Höhenwerte der Bettung, Strecke - Unterbrechung der Höhenlinie
+\item Performanceverbesserungen Packageinstallation
+\item Behandlung nicht planarer Flächen bei Objekten die bis inkl. Version 2.9 erstellt wurden so wie in Version 2.8.3
+\item Anzeige MessageBox bei fehlendem Sound im Simulator deaktiviert
+
+\item Streckeneditor: Laden von Objekten für 2D-Ansicht erfolgt im Hintergrund
+\item Streckeneditor: Graphikobjekte bei Streckeneigenschaften (Indusi-Magnete, Tafeln, etc) können nun jedes unterstützte Graphikformat sein (nicht nur .l3dgrp)
+\item Streckeneditor: Button ''Rollmaterial anzeigen'' in ''Rollmaterial ausblenden'' umbenannt
+
+\item Kursbucheditor: Standardauswahl bei neuer Verbindung im KBS-Editor optimiert
+\end{itemize}
+
+\subsubsection{Fehlerkorrekturen}
+\begin{itemize}
+\item ''Höhe über Landschaft'' bei global gesetzter Verschiebung in Y-Richtung
+\item Gleichzeitiger Einsatz von ''Objekt mitdrehen'' und ''Zoomfaktor''
+\item Texteigenschaft bei bestimmten Fonts
+\item Streckenobjekte an Achse wiederholen und Verschiebung von Objekten
+\item Einlesen ''2. Länge'' bei diversen Instrumenten von alten Führerständen
+
+\item Editor: Mehrere 3D-Fenster gleichzeitig bedienen
+\item Editor: Gehe-Zu-Postion Dialog aktualisiert 3D-Ansicht nicht
+\item Editor: Bugfix Neu-Dialog bei geöffneter 3D-Ansicht
+\item Editor: Korrektur Anzeige fehlender Dateien beim Erstellen von Packages
+\item Editor: Bugfix Erstellen eines Package (Versionsinfo, zu löschende Dateien und Packages)
+
+\item Objekteditor: Größenänderung Textur wird bei Drücken von ''Übernehmen'' Button erkannt
+\item Objekteditor: Flächen kopieren
+
+\item Gruppenobjekteditor: Nicht gesetzte Eigenschaft wird standardmäßig zu Wahr ''ausgewertet''
+\item Gruppenobjekteditor: Objekte auf/ab
+\item Gruppenobjekteditor: Punkte verschieben/zoomen Fonts
+
+\item Streckeneditor: ''HelligkeitProzent'' nicht von manuell eingestellter Helligkeit beeinflusst
+\item Streckeneditor: Erweiterte Objekteigenschaften bei Signalen
+\item Streckeneditor: Einstellen von Eigenschaften verschachtelter Gruppenobjekte
+
+\item Führerstandseditor: Undo/Redo
+\end{itemize}
+
+
+\subsection{Version 2.9}\hfill 9. November 2014
+
+\subsubsection{Neue Funktionen}
+\begin{itemize}
+\item \hyperref[sec:editor-obj-grp]{Gruppenobjekte können selbst Gruppenobjekte enthalten}
+\item \hyperref[sec:editor-obj-externe]{Unterstützung externer 3D-Objektmodellformate}
+\item Möglichkeit \hyperref[sec:editor-strecke-obj-achsewiederholung]{Objekte auf Strecke an beliebiger Achse zu wiederholen}
+% \item \hyperref[sec:editor-obj-textur-kachel]{Gekachelte Texturen bei Objekten}
+\item \hyperref[sec:editor-obj-l3dobj-normalen]{Möglichkeit bei Objekten Normalenvektoren pro Fläche und nicht pro Punkt zu definieren}
+\item Funktion \hyperref[sec:editor-obj-l3dobj-normalen]{''Berechnung Normalenvektoren''}
+\item Funktion ''\hyperref[sec:editor-obj-grp-verschieben]{Gruppenobjekt}/\hyperref[sec:editor-obj-l3dobj-punkteverschieben]{Objekt} am Nullpunkt zentrieren''
+\item \hyperref[sec:editor-obj-l3dobj-flaeche]{Funktion ''Rückseite einer Fläche automatisch erstellen''}
+\item \hyperref[sec:editor-obj-sichtbarkeitssteuerung]{Überarbeitung und Erweiterung der Sichtbarkeitssteuerung}
+\item \hyperref[sec:editor-allg-dateienueberschreiben]{Warnung beim Überschreiben fremder Dateien}
+\item Neue Funktion \emph{Dateiabhängigkeiten anzeigen} im Expertenmodus des PackageManager verfügbar
+\item \hyperref[sec:editor-obj-externe-konvertieren]{Konvertieren externer 3D-Objektmodellformate ins Loksim-Format}
+\end{itemize}
+
+\subsubsection{Kleinere Änderungen}
+\begin{itemize}
+\item Neue Systemvoraussetzung Windows Vista SP2 oder neuer 
+\item \hyperref[sec:editor-obj-sichtbarkeitssteuerung-streig]{Möglichkeit Streckenmeter als Objekteigenschaft zu benutzen}
+\item \hyperref[sec:editor-obj-logischeausdruecke-vars]{Variablen FahrplanDaten::Halt, BedarfshaltBahnsteig und BedarfshaltZug hinzugefügt}
+\item \hyperref[sec:editor-obj-dynstr]{Neuer Operand FahrplanDaten::LastHalt für dynamische Schriften}
+\item \hyperref[sec:editor-obj-dynstr-params]{Parameter von dynamischen Schriften können im Streckeneditor gesetzt werden}
+\item Objektflächen müssen nicht konvex sein
+\item Performanceverbesserungen
+\item Objekte tauchen nicht mehr so plötzlich aus dem Nichts auf
+\item \hyperref[sec:editor.allg.packages]{Fehlende Dateien beim Erstellen eines Package werden angezeigt}
+\item Dialog Beleuchtung: ''Slider'' auf ''SpinBox'' geändert
+\item Wegfall der Option \emph{Graphik unter x fps vereinfachen}
+\item Neue Expertenoption zur Steuerung der \hyperref[sec.sim.optionen.darstellung]{Objektsichtweiten}
+\item Neue Option \hyperref[sec.sim.optionen.darstellung]{Windows 8 Vollbildmodus}
+\end{itemize}
+
+\subsubsection{Fehlerkorrekturen}
+\begin{itemize}
+\item AFB ohne LZB-Führung nur bis 160 stellbar
+\item Korrektur falsche Befreiungsmöglichkeit PZB90 1000Hz Beeinflussung
+\item Zugsicherung Fahrsperre: Überwachungsgeschwindigkeit 2000Hz von 40km/h auf 10km/h verändert
+\item Probleme Nachtführerstand und Standardgleis behoben
+\item Korrektur OLE-Variable Wechselblinken
+\item Fehler im PackageManager bei Deinstallation von Packages behoben
+\item PZB-Befehl über Joystick wieder möglich
+\item Editieren von Instrument Weglängenmessung korrigiert
+\item Fehler beim Abspeichern benutzerdefinierter Charakteristik der Fahrstufen korrigiert
+\end{itemize}
+
+\subsection{Version 2.8.3}\hfill 2. April 2014
+
+\subsubsection{Neue Funktionen}
+\begin{itemize}
+\item \hyperref[sec:editor-obj-transparenz]{Transparenz aus Alphakanal}
+\item \hyperref[sec.sim.steuerung.diverses.wegmessung]{Zuglängenzähler}
+\item \hyperref[paragraph.editor.gleis.gleiseigenschaften.signal.optiongruppensignal] {Signal - Option Gruppensignal}
+\item \hyperref[subsubsec.editor.gleis.gleiseigenschaften.signaloptionen]{Signaloptionen - gleisabhängiges Zusatzsignal}
+\item \hyperref[sec.editor.obj.logischeausdruecke]{Sichtbarkeitssteuerung - Variable VsigKennzahlKleiner}
+\item \hyperref[sect.editor.lok.fst]{Nachtführerstandsbild}
+\end{itemize}
+
+\subsubsection{Kleinere Änderungen}
+\begin{itemize}
+\item Störschalter für PZB90
+\item Verbesserung Verhalten PZB90 während LZB-Betrieb
+\item Wegfall des 16px Rands für transparente \hyperref[sec:editor-obj-textur]{Texturen}
+\item Dialog für den Aufruf der Hilfedateien
+\item Erweiterung des Fahrtenschreibers um PZB-Tasten und LZB-Status
+\item Anpassung der Uhrzeit-Werte im TCP-Protokoll an die Zusi2-Ausgaben (IDs 10, 11, 12, 50)
+\item Digitale Instrumente können rechtsbündig dargestellt werden
+\item Bei fehlender Fahrplandarstellung wird der erfolgreiche Halt im Buchfahrplan/EBuLa angezeigt
+\item Unverriegelte Türen öffnen bei jedem Halt (auch auf freier Strecke) automatisch 
+\end{itemize}
+
+\subsubsection{Fehlerkorrekturen}
+\begin{itemize}
+\item Sound Ende 500Hz Überwachung
+\item Fehlerkorrektur bei Überlagerung zweier 1000Hz Beeinflussungen (PZB90)
+\item Korrekturen bei G- und S-Melder im LZB-Betrieb
+\item Problem bei gleisabhängiger Sichtbarkeitssteuerung behoben
+\end{itemize}
+
+\subsection{Version 2.8.2a}\hfill 26. Juli 2013
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Geschwindigkeiten über 160km/h mit LZB wieder möglich
+\item
+  Bedingtes Abspielen von Streckensounds
+\end{itemize}
+
+\subsection{Version 2.8.2}\hfill 18. Juli 2013
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Bei der Darstellung des Buchfahrplans können die Spalten vier und fünf
+  auf Rechtsbündig gesetzt werden.
+\item
+  Die Darstellung des Buchfahrplans kann auf EBuLa umgestellt werden.
+  Die EBuLa-Anzeige ist nur vorbildähnlich.
+\item
+  2D-Fonts können sämtliche Zeichen aus Unicode enthalten
+\item
+  Gefahrene Km bzw. Anzahl Aufrufe werden auch pro Fahrplan gespeichert
+\item
+  Die Anzahl der Zeilen des Buchfahrplans im Führerstand kann nun im
+  Editor gesetzt werden.
+ \item 
+  Komplette Neuimplementierung der PZB90
+\item
+  Stadtbahn PZB90  
+\item
+  Englische Version des Simulators
+\item
+  PackageManager: Deinstallation von Packages während Installation neuer
+  Packages möglich
+\item
+  Joystick Achsen umkehrbar
+\item
+  Schneefall (Alpha Status) über Wetterdateien steuerbar
+\end{itemize}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Der Indusimagnet des Schutzsignals wird eigenständig ausgewertet
+\item
+  Lüfter läuft nur bei Verwendung dynamischer Bremse nach
+\item
+  Lüfter schaltet mit HS aus
+\item
+  Anzeige Lüfterstatus verzögert anhand von Sound
+\item
+  Testen im LoksimEdit für Wetterdateien, Dynamische Schriften u.
+  Dynamische Sichtbarkeitssteuerung verbessert
+\item
+  Kameraposition im (Gruppen)objekt-Editor bleibt nach Update-(Button)
+  erhalten
+\item
+  Leerzeilen in der Buchfahplananzeige unterdrückt
+\item
+  Gruppenobjekt-Editor: Eigenschaften von Gruppenobjekt "überleben" ein
+  Refresh der 3D-View
+\item
+  PackageManager: Anzeige von überschriebenen oder gelöschten
+  schreibgeschützten Dateien ganz oben
+\item
+  Zufall pro Gruppenobjekt mit Sonstige::ZufallGruppenObjekt
+\item
+  CrashReport Sprache wird dynamisch anhand ausgewählter Sprache bei
+  Installation bzw. PackageManager gesetzt
+\item
+  Sondersounds werden mit der Lautstärke für Ansagen abgespielt
+\item
+  Standard Sky-Datei wird nicht mehr automatisch im Fpl gesetzt
+\item
+  Darstellung Bedarfshalt in der Fpl-Anzeige geändert.
+\item
+  LoksimEdit: Datei-Öffnen Dialog enthält "Doku" Button
+\item
+  Verbesserte Auswahl für Standardauflösung und 3D-Treiber
+\item
+  Fette Überschriften im Lokeditor
+\item
+  Multimonitor-Support bei gleichen Treibernamen
+\item
+  TCP: Soll-Fahrstufe und Oberstrom
+\end{itemize}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Bugfix Öffnen "Zuletzt verwendeter Datei" die nicht mehr existiert
+\item
+  PackageManager - Installation rückgängig machen bei schreibgeschützter
+  Datei
+\item
+  Fehler bei Speichern unter - Textur kopieren behoben
+\item
+  Tippfehler und Texte im Lokeditor überarbeitet
+\item
+  'Verschleppte' Bezeichungen aus dem Nebengleis gefixed
+\item
+  Leerzeilen im Buchfahrplan Führerstand unterdrückt
+\item
+  Fehler in L3dEditLauncher behoben (mehrere Loksim Installationen)
+\item
+  Fehler in der Fahrplananzeige behoben
+\item
+  Mausradsteuerung
+\item
+  Verzerrter Sound im Stand
+\item
+  Korrektur Anzeige Bedarfshalt im Fst (manchmal zu früh)
+\item
+  Joystick mit Funktion "Kombibremshebel (inkl. Beschleunigung)" bei
+  Fst. mit Kombibremshebeln verwendbar
+\item
+  Diverse Korrekturen bei LZB und AFB
+\item
+  Doppelter Nullstellzwang
+\item
+  Zs1 im LZB-Betrieb
+\item
+  AFB + Kombihebel
+\end{itemize}
+
+\paragraph{Version 2.8.1a}
+
+07. Dezember 2012
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Variable Sonstige::Zuglaenge
+\item
+  Senden der Daten in Fehlerberichten optimiert
+\item
+  Option Texturhandling standardmäßig auf "Bei Bedarf laden und nicht im
+  Speicher halten"
+\end{itemize}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  AFB nur bis max. 160km/h ohne LZB
+\item
+  Bugfix Haltansagen
+\item
+  Bitmap bei "Font Erstellen" wird wieder automatisch generiert
+\item
+  PackageManager funktioniert auch auf FAT32 Partitionen
+\item
+  Kleinere Bugfixes im PackageManager
+\end{itemize}
+
+\paragraph{Version 2.8.1}
+
+26. Oktober 2012
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Die erste und zweite Spalte in der Fahrplandarstellungen der
+  Führerstände sind jetzt als rechtsbündige Ausgabe möglich
+\item
+  Fonts sind jetzt wie Objekte über statische Zustandsvariablen
+  schaltbar
+\item
+  Indusi zusätzlich: Nunmehr sind Geschwindigkeitsprüfabschnitte auch
+  signalabhängig möglich
+\item
+  In Fahrplänen können benutzerdefinierte Variablen zur Verwendung in
+  logischen Ausdrücken gesetzt werden
+\item
+  Trennung von Daten- und Programmverzeichnis möglich
+\item
+  Automatisches Erstellen von Fehlerberichten
+\item
+  Ein durchfahrener Halt kann als Zugfolgestelle definiert werden.
+\item
+  Ein Halt kann als Betriebshalt definiert werden.
+\item
+  Kachelung von Texturen in Skyboxen möglich
+\item
+  Texturen im PNG- und TGA-Format werden unterstützt
+\item
+  Dynamische Schriften möglich
+\item
+  LZB Verbesserungen: BKW und realistischere Bremskurven
+\end{itemize}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Leuchtmelder Halbstufe reaktiviert
+\item
+  Steuerung S-Melder angepasst
+\item
+  Berechnung der Zuglänge im Bremszettel geändert
+\item
+  (Dis)connect Buttons für TCP-Anbindung eingebaut
+\item
+  PackageManager an kleinere Auflösungen angepasst
+\item
+  PackageManager kann installierte Dateien mit 'Doppelklick' sofort
+  öffnen
+\item
+  Quadratische Texturen bei seitlichen Flächen in Skyboxen möglich und
+  empfohlen
+\item
+  Bei Wetterauswahldialog ist standardmäßig "Zufällig" (Skybox)
+  ausgewählt und nicht mehr die klassische Steuerung
+\item
+  Loksim(Edit) About-Dialog zeigt Verwendung von SSE2 an
+\item
+  Gebaeude1\_FFS von RainerH in Standard-Package 2.8.1 inkludiert
+\item
+  Anpassung an Benutzerkontensteuerung
+\item
+  Beim Package Erstellen kann man nun standardmäßig auch .txt, .pdf,
+  .xps Dateien auswählen (Doku)
+\item
+  Über den Eigenschaften-Dialog kann man im LokimEdit jeder Datei eine
+  Doku zuweisen. Für Fahrpläne und Loks wird im Loksim3D ein "Doku"
+  Button zum Öffnen dieser Doku angezeigt
+\item
+  Joystick Slider (Schubregler) ist nutzbar
+\item
+  Bedarfshaltanzeiger kann im Editor mittels "Signal grün/rot" Button
+  getestet werden
+\item
+  Bedarfshalt "immer" zu Testzwecken einstellbar
+\item
+  Zeitpunkt an dem Bedarfshalt-Anzeige im Fst aufleuchtet wird zufällig
+  bestimmt
+\item
+  Installer regisistriert automatisch LoksimControl.exe
+\item
+  Speicherlimit für Loksim3D bzw. LoksimEdit auf 3 bzw. 4 GB angehoben
+  (32 bzw. 64 Bit OS)
+\item
+  Erweiterung der logischen Ausdrücke
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    FahrplanDaten::Ankunftszeit"\textless{}halt\textgreater{}"
+  \item
+    FahrplanDaten::Abfahrtszeit"\textless{}halt\textgreater{}"
+  \item
+    FahrplanVars::
+  \item
+    Funktionen::TimeDif(\textless{}arg1\textgreater{},
+    \textless{}arg2\textgreater{})
+  \end{itemize}
+\item
+  Neue Mausgesten bei der 3D Vorschau von Objekten
+\item
+  Normalenvektoren können im (Gruppen-)Objekteditor ausgeblendet werden
+\item
+  PreivewHandler zeigt Readme von .l3dpack Dateien
+\item
+  Joystickfunktionen Zugkraftregler (+/-) und AFB-Ziel (+/-) an
+  Verhalten von Fahrstufe (+/-) angeglichen
+\item
+  Neue Icons
+\end{itemize}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Vorsichtsignal (Zs7) ermöglicht ebenfalls die Abfahrt
+\item
+  Anzeige Indusi-Art in Fahrtenschreiber + LokInfo Anzeige korrigiert
+\item
+  Installer räumt Registry- und Startmenüeinträge bzw Dateien des alten
+  Installers (2.7.2) auf
+\item
+  Abstürze des WetterEditors behoben
+\item
+  Streckensound im selben Ordner wie .l3dstr-Datei nun möglich
+\item
+  Ende Fahrt Anzeige überdeckt nicht mehr Fahrtauswertung
+\item
+  Diverse Tippfehler korrigiert
+\item
+  Bugfix für Anzeige Schnellbremsung bei OLE bzw. TCP
+\item
+  keine Soundkarte Fehlermeldung wird nur 1x gezeigt
+\item
+  Absturz LoksimEdit bei Verwendung von Touch-Monitor behoben
+\item
+  Fehler bei F11 bei kurzen Haltabständen behoben
+\item
+  Fehler bei Planabfahrt kurz nach 00:00 behoben
+\end{itemize}
+
+\paragraph{Version 2.8}
+
+11. März 2012
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Zusätzliche und erweiterte Signalfunktionen
+\item
+  Geschwindigkeitsprüfabschnitte
+\item
+  Logische Ausdrücke zur Sichtbarkeitssteuerung bzw Soundsteuerung
+\item
+  Wetter- / Himmelstextursteuerung
+\item
+  In Fahrplänen kann ein Sound definiert werden, welcher in einer
+  bestimmten Entfernung vor einem (Bedarfs)halt abgespielt wird
+\item
+  Standarddateidialog auch unter Windows XP verwendbar
+\item
+  Neuer PackageManager für die (De)installation von Loksim-Packages
+\item
+  BÜ-Namen können nicht nur aus einer Liste ausgewählt werden, sondern
+  auch direkt per Namen eingegeben werden (sinnvoll falls BÜ in anderer
+  Streckendatei definiert ist)
+\item
+  Vertikaler Schriftzug bei Gruppenobjekten
+\item
+  Neue Hauptsignaleigenschaft als Checkbox: Zwischensignal
+\item
+  Einbau CH-Sifa mit und ohne HS-Auslösung. Minor Bugfixes CH-Indusi und
+  neu Auslösung mit oder ohne HS-Auslösung.
+\item
+  Fehlende Verzögerung zwischen Schalten von BueLicht und BueSchranke
+  bei Bahnübergängen eingebaut
+\item
+  {[}Vista+{]} Dateivorschau Handler (PreviewHandler) wird bei
+  Installation registriert
+\item
+  {[}Vista+{]} Aufnahme der Loksim-Dateien in Windows-Suchindex bei
+  Installation
+\item
+  Programmende beim Überfahren eines Rot zeigenden Signales ist
+  abschaltbar
+\item
+  Erweiterung des Kombihbels um die Option "nur dyn. Bremse".
+\item
+  Fehlerkorrektur: Keine vZielüberwachung in der PZB bei Welchselblinken
+  ohne 500er und 1000er-Melder.
+\item
+  Fehlerkorrektur: Nullstellungszwangauflösung über Zugkraft 0 möglich.
+\item
+  Joysticksteuerung bei Beschl+Bremsen mit Zugkraftregler korrigiert
+\item
+  Endlosschleifen KBS-Editor Weichenstellung verhindert
+\item
+  Bei der Zifferneingabe im Editor werden jetzt auch Kommas (Beistriche)
+  akzeptiert
+\item
+  Real-Sifataste auch auf den Achsen der Joysticksteuerung
+\item
+  Bugfix beim Bestimmen des relativen Pfads von Loksim-Dateien gegenüber
+  anderen Loksim-Dateien
+\item
+  Die Ausgabe 'Streckenlimit' so gesetzt, das auch ein Limit von 99km/h
+  die Kennziffer 9 ergibt.
+\item
+  Standard-3D Einstellungen geändert: Max-Texturgröße 1024, Alle
+  Texturen Laden und im Speicher halten, Hohe Farbtiefe, Cache nicht
+  verwenden
+\item
+  L3dEditLauncher startet bei Vorhandensein mehrerer
+  Loksim-Installationen immer den Editor im richtigen Ordner
+\item
+  Unterstützung von CrashDumps
+\item
+  Einsatz des SSE2 Befehlssatz bei neueren CPUs
+\end{itemize}
+
+\paragraph{Version 2.7.2}
+
+12. Dezember 2010
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Bug Lok Editor behoben (fehlende Eingabefelder für Instrumente)
+\end{itemize}
+
+\paragraph{Version 2.7.1}
+
+29. November 2010
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Erweiterte Bahnübergangssteuerung
+\item
+  Es kann der Sifa/Indusi-Zwangsbremsungssound mit der Option "nur
+  einmal" versehen werden.
+\item
+  Auswertungs Bitmap funktioniert nun auch bei GDI Darstellung
+\item
+  Bug bei Laufleistung km Protokollierung behoben (alte Statistiken
+  werden automatisch gelöscht)
+\item
+  Button Texturecache löschen funktioniert wieder
+\item
+  Streckensounds bei mehreren Modulen funktioniert nun
+\item
+  Bug in der Fahrtenschreiberauswertung behoben (- Prozente)
+\item
+  Bug bei Störungshäufigkeit von Signalgedeckten und Signalgedeckt
+  (Streckenblock) BÜs
+\item
+  Standard Dateiinfo und -autor kann angegeben werden
+\item
+  Ab Vista kann anstatt dem loksimspezifischem der Standard Windows
+  Dialog verwendet werden
+\item
+  Anzeige von Limits bei denen "Limit nicht anzeigen" gesetzt ist,
+  werden standardmäßig in der EBULA nicht mehr angezeigt. Für Anfänger
+  gibt es die Möglichkeit diese realitätssteigernde Option auszuschalten
+\item
+  Infofeld bei Fahrplan- und Lokauswahl vergrößert
+\item
+  Bug Haltestellenansage nach letztem Halt behoben
+\item
+  Bug Zs9 Meldung kommt nur mehr bei gestörten BÜs
+\item
+  PZB Befehl auf Maustaste möglich
+\item
+  Unnötige Änderungen übernehmen Nachfrage im Editor bei Weitsichtbar
+  behoben
+\item
+  Streckensounds im Editor standardmäßig stummgeschaltet; Zustand der
+  "Stummschaltung" wird bei Ein- und Ausschalten der Vorschau übernommen
+\item
+  Einbau SBB-Signum
+\item
+  Bug Uninstall behoben
+\item
+  Farbe und Breite für Sekundenzeiger in Analoguhr einstellbar
+\item
+  Bei Package-Installation werden die Zeitstempel bei versuchtem
+  Überchreiben von schreibgeschützten Dateien angezeigt
+\item
+  Bug bei Zs1 behoben
+\end{itemize}
+
+\paragraph{Version 2.7}
+
+1. Juli 2010
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  2D Darstellung standardmäßig mit DirectX
+\item
+  Möglichkeit Sounds auf Strecke einzubinden
+\item
+  Fehlerkorrekturen bei Packageinstallation
+\end{itemize}
+

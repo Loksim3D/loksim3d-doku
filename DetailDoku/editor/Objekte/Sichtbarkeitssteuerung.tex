@@ -1,0 +1,33 @@
+\section{Sichtbarkeitssteuerung}\abversion{2.9}
+\label{sec:editor-obj-sichtbarkeitssteuerung}
+Mit Hilfe der Sichtbarkeitssteuerung ist es möglich, (Teil-)Objekte anhand bestimmter ''Umgebungseigenschaften'' ein- und auszublenden. Die Sichtbarkeitssteuerung wurde mit Version 2.9 grundlegend überarbeitet und vereinheitlicht. Vor Version 2.9 konnte die Sichtbarkeit eines Objekts auf drei unterschiedliche Arten gesteuert werden: Mittels ''Nur sichtbar'' bei bzw. ''nur unsichtbar bei'' Ausdrücken und mit Hilfe der ''Dynamischen Sichtbarkeitssteuerung.'' Diese drei Varianten wurden mit Version 2.9 zur allgemein verwendbaren \emph{Sichtbarkeitssteuerung} vereinheitlicht. Alte Objekte werden dabei automatisch beim Laden in das neue Format konvertiert und müssen nicht extra bearbeitet werden.
+
+\subsection{Sichtbarkeitssteuerung in Gruppenobjekten}
+Teile eines Gruppenobjekts (Objekte und Fonts) können mit der Sichtbarkeitssteuerung ein- bzw. ausgeblendet werden. Dafür wird in das Feld \emph{Sichtbarkeitssteurung} ein \hyperref[sec.editor.obj.logischeausdruecke]{Logischer Ausdruck} eingetragen. Dabei können alle Operanden die im Abschnitt der logischen Ausdrücke beschrieben sind, eingesetzt werden. Zusätzlich können beliebigen Variablen die mit \emph{Str::} beginnen eingesetzt werden. Für diese kann vom Streckenautor in der Strecke ein Wert gesetzt werden.
+
+Wird die Option \emph{Objekt in Sichtweite ändert Sichtbarkeit nicht} aktiviert, wird die Sichtbarkeit des Objekts in der Nähe der aktuellen Kameraposition nicht geändert. In vielen Fällen ist diese Option sinnvoll, um zu verhindern, dass ein Objekt plötzlich verschwindet oder aus dem Nichts auftaucht. Allerdings ist es für bewusst dynamische Objekte wie Signallichter oder Bahnschranken nicht sinnvoll, diese Eigenschaft zu aktivieren.
+
+Für das Testen der Sichtbarkeitsausdrücke steht ein Eigenschaftseditor zur Verfügung, welcher in der 3D-Vorschau mittels dem mit \emph{E} gekennzeichneten Button geöffnet werden kann. 
+
+\subsection{Sichtbarkeitssteuerung Streckenobjekte}
+Im Streckeneditor kann ganzen Streckenobjekten ein Sichtbarkeitsausdruck zugewiesen werden. Hierbei sind ebenfalls die gleichen Operatoren und Variablen wie bei den \hyperref[sec.editor.obj.logischeausdruecke]{logischen Ausdrücken} beschrieben einsetzbar. Einige wenige Ausnahmen sind in der Auflistung explizit gekennzeichnet. Im Gegensatz zu der Sichtbarkeitssteuerung in Objekten macht es hier keinen Sinn, Variablen die mit \emph{Str::} beginnen einzusetzen.
+
+Es ist zu beachten, dass bei Streckenobjekten gesetzte Sichtbarkeitsausdrücke für jedes enthaltene Objekt einzeln gelten. Beispielsweise werden mit dem Sichtbarkeitsausdruck \emph{Sonstige::Zufall \% 100 < 40} zufällig enthaltene Objekte aus oder eingeblendet. Es werden \emph{nicht} gleichzeitig alle Objekte ein- oder ausgeblendet. Um diesen Effekt zu erreichen, müssen die Objekte in ein Gruppenobjekt gepackt werden, welches dann gesammt ein- oder ausgeblendet werden kann.
+
+\subsection{Sichtbarkeitssteuerung über Eigenschaften der Objekte}
+\label{sec:editor-obj-sichtbarkeitssteuerung-streig}
+Bei Streckenobjekten kann für jedes Objekt welches \emph{Str::} Variablen im Sichtbarkeitsausdruck enthält ein Eigenschaftsfenster geöffnet werden. In diesem gibt es für jede Eigenschaft drei Möglichkeiten:
+\begin{description}
+\item[Sichtbarkeitsausdruck]Es wird ein ganzer Sichtbarkeitsausdruck gesetzt, welcher die gleichen Variablen wie Sichtbarkeitsausdrücke bei Streckenobjekten enthalten darf.
+\item[Nein/Ja]: Die Eigenschaft wird mit ja/nein (wahr/falsch) fix gesetzt
+\item[Aus Variable]: Die Eigenschaft wird aus diversen zur Verfügung stehenden Werten aus der Simulation gefüllt:
+\begin{description}
+\item[Streckenhektometer] Formatierter String für Anzeige des Streckenhektometers auf Hektometertafeln
+\item[Streckenmeter] Position des Objekts in Metern
+\item[Weichenstellung] Anzeige der Weichenstellung
+\item[Zufallsgenerator] Es wird mittels Zufall bestimmt ob die Eigenschaft mit 0 oder 1 (falsch oder wahr) gesetzt werden soll. Eine genauere Steuerung des Zufalls ist mittels Sichtbarkeitsausdruck und \emph{Sonstige::Zufall} möglich
+\item[Bahnuebergang] Eigenschaft für Bahnübergänge
+\end{description}
+\end{description}
+
+Nachdem in \hyperref[sec:editor-obj-dynstr]{Dynamischen Schriften} über die \emph{Expr}-Funktion ganze logische Ausdrücke verwendet werden können, können dort verwendete \emph{Str::} wie für die Sichtbarkeitssteuerung in im Eigenschaftsfenster gesetzt werden.

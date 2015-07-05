@@ -1,0 +1,133 @@
+\section{Indusi/PZB}
+
+In Version 2.8.2 wurde eine Überarbeitung der PZB90 eingebaut. Dieser
+Abschnitt bezieht sich derzeit, nur auf die PZB-Versionen, welche von
+dieser Überarbeitung betroffen sind.
+
+\subsection{Art der Indusi}
+
+Folgende PZB-Arten wurden mit Version 2.8.2 erneuert:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  PZB90 I60R
+\item
+  PZB90 I60/ER24
+\item
+  PZB90 PZ80R
+\item
+  PZB90 I80
+\end{itemize}
+
+Die PZB Version kann für diese Typen im \hyperref[sec.editor.pzb.einstellungen]{PZB Einstellungsdialog} geändert
+werden
+
+Eine detaillierte Beschreibung der Systeme kann im \href{http://www.dbnetze.com/regelwerke}{betrieblich-technischen Regelwerk der DB Netz AG}
+nachgelesen werden.
+
+Bei I60R ertönt der Sound für die Freitaste nur, wenn tatsächlich eine
+Befreiung möglich ist. Bei I60/ER24 ertönt dieser Sound immer wenn die
+Freitaste gedrückt ist.
+
+Kontrolllauf und PZ80R Kontrollschalter sind derzeit nicht implementiert.
+
+Jene Optionen die mit \emph{(veraltet)} gekennzeichnet sind, sollten bei
+neuen Loks nicht mehr verwendet werden. Diese Optionen stehen nur
+aufgrund Rückwärtskompatiblität zu älteren Führerständen zur Verfügung
+
+\subsection{Sounds}
+
+\begin{description}
+\item[Indusihupe (WT, FT)]
+Sound welcher bei Betätigung von Wachsamkeitstaste bzw. Freitaste
+abgespielt wird. Dieser wird in einer Schleife abgespielt, solange die
+entsprechende Taste gedrückt ist.
+\item[Indusibefehl]
+Sound welcher in einer Schleife abgespielt wird, solange die
+Befehlstaste aktiv ist.
+\item[Zwangsbr.-Indusi]
+Dieser Sound wird in einer Schleife während einer Zwangsbremsung
+abgespielt.
+\item[Zwangsbr.-Indusi nur einmal]
+Dieser Sound wird exakt einmal am Anfang einer Zwangsbremsung
+abgespielt.
+\item[Ende 500Hz Überwachung]
+Sound wird am Ende einer 500Hz Überwachung abgespielt, falls sie im
+restriktiven Modus endet.
+\item[Überschreiten V-Pruef]
+Dieser Sound wird beim Überschreiten der PZB-Prüfgeschwindigkeit
+wiederholt abgespielt. Je nach PZB-Art kommt dieser Sound sofort bei
+Überschreiten oder erst nach einer definierten Zeitspanne.
+\end{description}
+
+\subsection{Leuchtmelder und Anzeigen}
+
+Die Leuchtmelder und Anzeigen werden wie andere Anzeigen im Lokeditor
+definiert. Bei Einsatz von PZ80R sollte von den Leuchtmeldern nur der
+Leuchtmelder Indusi 95 (LVZ grün) definiert werden, aber dafür die
+Anzeige IndusiVZiel. Bei den anderen Arten sollte alle Leuchtmelder
+gesetzt werden, jedoch die Anzeige IndusiVZiel nicht.
+
+\subsection{PZB Einstellungen}
+\label{sec.editor.pzb.einstellungen}
+
+Im Lokeditor ist über das Menü Bearbeiten - PZB Einstellungen ein Dialog
+abrufbar, der weitere Einstellungen für die PZB ermöglicht.
+
+Zum Großteil geht es hier um Eigenschaften der PZB die nicht exakt aus
+den uns zur Verfügung stehenden Unterlagen implementiert werden konnten
+oder wo es in der Praxis konträre Erfahrungen gibt. Jedoch gibt es auch
+Einstellungen die bekanntermaßen von Lok zu Lok unterschiedlich sind
+
+\begin{description}
+\item[Version]
+Hier kann die Version der PZB90 ausgewählt werden. Es stehen alle
+Versionen die in der Realität vewendet werden und wurden (1.5, 1.6 und
+2.0) zur Verfügung
+\item[Befehlstaste ist ein Schalter]
+Ein Druck auf die Befehlstaste aktiviert die Befehlstaste und ein
+zweiter Druck deaktiviert diese.
+\item[Befehlstaste ist ein Taster]
+Befehlstaste ist nur aktiv, solange die Taste gedrückt wird. Dies ist
+meist bei neueren Tfz der Fall.
+\item[Zeit für Wachsamkeitstaste]
+Definiert die Zeit in Millisekunden innerhalb welcher nach einer 1000Hz
+Beeinflussung die Wachsamkeitstaste gedrückt werden muss. Normalerweise
+sind dies 4 Sekunden, im Fall der MVB jedoch 2,5 Sekunden.
+\item[Befreiung aus Zwangsbremsung...]
+Annahme: Bei Stillstand nach einer Zwangsbremsung aufrund einer 1000Hz
+Überwachung sind bereits 700m oder mehr ab Beginn der Beeinflussung
+vergangen. Nun muss die Freitaste zur Befreiung aus der ZB betätigt
+werden.
+
+Falls die Option kann gleichzeitig Befreiung aus 1000Hz Überwachung
+bewirken gesetzt ist, bewirkt ein Druck auf die Freitaste die Befreiung
+aus der ZB, sowie die Befreiung aus der 1000Hz Überwachung.
+
+Ist hingegen bewirkt niemals gleichzeitig Befreiung aus einer
+Überwachung gewählt, bewirkt ein Drücken der Freitaste ausschließlich
+die Befreiung aus der ZB.
+\item[Dauerbetätigung PZB Tasten]
+Wird hier eine Option gesetzt, wird die entsprechende Taste nach der
+bestimmten Zeit und/oder Entfernung unwirksam. 0 bedeutet, dass die
+Taste kein Zeit- bzw. Entfernungsmaximum besitzt.
+
+Die Richtlinien der ÖBB geben eine maximale Distanz von 225m für alle
+Tasten an.
+\item[Status 'befreit' wird an überlagerte Überwachung weitergegeben]
+Wird diese Option gesetzt, wird der Status 'befreit' einer 1000Hz
+Überwachung an eine überlagerte 1000Hz Überwachung weitergegeben.
+Angenommen folgende Situation: 0m/1000Hz, 800m/Befreiung, 1000m/1000Hz,
+1400m/500Hz: Ist diese Option nicht gesetzt, erfolgt am 500Hz Magnet
+keine Zwangsbremsung, solange man die entsprechende Geschwindigkeit
+einhält. Ist die Option gesetzt, bekommt man am 500Hz Magnet immer eine
+ZB aufgrund nicht erlaubter Befreiung
+\item[Sonderform]
+Über diese Einstellungen können Sonderformen der PZB simuliert werden.
+
+Derzeit ist nur die Sonderform \emph{Stadtbahn} möglich. Bei dieser
+Variante gibt es neben dem Wechselblinken ein Gleichblinken, bei welchem
+65km/h gefahren werden dürfen.
+\end{description}
+

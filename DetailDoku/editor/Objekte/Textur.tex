@@ -1,0 +1,74 @@
+\section{Textur}
+\label{sec:editor-obj-textur}
+Texturen sind Bilder welche auf auf die dreidimensionalen Objekte aufgebracht werden können, um die Darstellungsqualität erheblich zu verbessern. Loksim unterstützt die Bildformate \emph{BMP}, \emph{PNG} und \emph{TGA} für Texturen.
+
+\subsection{Transparenz}
+\label{sec:editor-obj-transparenz}
+Zusätzlich können Objekte mit einer Transparenzkomponente ausgestattet werden, um (halb)durchsichtige Oberflächen umzusetzen. Dafür werden folgende Techniken angeboten:
+\begin{description}
+\item[nicht transparent] Unahbängig von der verwendeten Textur wird das Objekt vollständig undurchsichtig dargestellt
+\item [Schwarz ist transparent] Alle Bereich die komplett schwarz sind (0x000000), werden transparent dargestellt.
+\item [Transparenzfarbe ist die Farbe des Pixels links/oben] Alle Bereiche welche die exakt gleiche Farbe wie das Pixel in der linken, oberen Ecke haben, werden transparent dargestellt
+\item [Transparenz aus Bitmap (Weiß undurchsichtig...)] Für diesen Typ muss eine zweite Bilddatei angegeben werden. Die Transparenz wird dann mittels dieser zweiten Datei bestimmt, wobei Weiß undurchsichtig ist, schwarz komplett transparent und die Graustufen dazwischen halbdurchsichtige Bereiche ergeben.
+\item [Transparenz aus Alphakanal - alle Transparenzwerte möglich] Die Transparenz wird aus dem Alphakanal der Textur ausgelesen. Dies ist nur bei Bildformaten möglich, welche einen Alphakanal unterstützen. \abversion{2.8.3}
+\item [Transparenz aus Alphakanal - nur sichtbar/unsichtbar] Die Transparenz wird wie bei der vorigen Option aus dem Alphakanal ausgelesen. Es werden jedoch keine beliebigen Transparenzwerte unterstützt, sondern nur eine Unterscheidung zwischen sichtbaren und unsichtbaren  Pixel vorgenommen. Wenn möglich sollte diese Option aus Performancegründen der anderen Alphakanal-Option vorgezogen werden. \abversion{2.8.3}
+\end{description}
+
+% \subsection{Gekachelte Texturen}\abversion{2.9}
+% \label{sec:editor-obj-textur-kachel}
+% Wird als Texturkoordinate ein Wert kleiner 0 eingegeben oder ein Wert der größer ist als die Breite bzw. Höhe der Textur, wiederholt sich die Textur. Ist die Textur beispielsweise 200px breit, und als X-Koordinate wird 400 eingegeben, wiederholt sich die Textur an der X-Achse zweimal
+
+\section{Texturnutzung optimieren}\abversion{2.9.2}
+\label{sec:editor-texturnutzung-optimieren}
+Diese Funktion ermöglicht es die Texturen von beliebig vielen (Gruppen)objekten in möglichst wenig Texturen zusammenzufassen. In vielen Fällen wird das einfach nur ein einzelnes Gruppenobjekt sein, bei dem man die Texturen der Bestandteile zusammenfassen möchte, man kann aber auch mehrere Objekte auswählen. Die Texturen die dabei entstehen sind vom Platzbedarf nicht immer ganz perfekt, aber doch ganz ordentlich. Die Ergebnistextur ist immer eine PNG-Datei, wo bei Bedarf der Alphakanal entsprechend gesetzt ist.
+
+\begin{description}
+\item[Objekt hinzufügen] Über diese Schaltfläche und über das Kontextmenü in der Objektliste können (Gruppen)Objekte hinzugefügt werden, deren Texturen in möglichst wenigen Texturen zusammengefasst werden sollen. Über das Kontextmenü in der Liste können hinzugefügte Objekte wieder gelöscht werden.
+\item[Zielordner] Im Zielordner werden die neuen Teilobjekte sowie die generierten Texturen gespeichert. Dieser Ordner sollte leer sein, da etwaige bestehende Dateien ohne Rückfrage überschrieben werden.
+\item[Maximale Texturegröße] Die maximale Texturgröße der neu generierten Texturen. In den meisten Fällen sollte man hier die Standardauswahl von 1024 benutzen.
+\item[Basis Texturname] Diese optionale Einstellung wird für die Namensgebung der neu generierten Texturen verwendet. 
+\end{description}
+
+Ein klassisches Einsatzgebiet dieser Funktion ist, wenn man sich beim Bauen eines ganz neuen Objekts keine Gedanken über die optimale Texturnutzung machen möchte und einfach mit lauter Einzeltexturen los baut. Am Ende muss dann nur diese Funktion angewendet werden und man hat eine gute Zusammenfassung der Einzeltexturen in weniger Texturen.
+
+\subsection{Empfehlungen}
+\begin{itemize}
+\item Der Platz auf einer Textur sollte nach Möglichkeit optimal ausgenutzt werden. Bei einem Objektset oder Gruppenobjekten können sich dafür auch mehrere Objekte eine Textur teilen.
+\item Texturen sollten eine Höhe und Breite haben, welche einer Zweierpotenz ($2^{n}$) entspricht. Typische Werte sind 2, 4, 8, 16, 32, 64, 128, 256, ...
+\item Die Texturgröße sollte sich an der maximalen Größe, mit der ein Objekt in der Szene dargestellt werden soll, orientieren.\\
+Für ein einfaches Signallicht, reicht deshalb möglicherweise schon eine 8x8px große Textur. Für sehr große Objekte wie beispielsweise Kulissen können die Texturen auch entsprechend groß werden (1024px oder im Extremfall 2048px), um eine hohe Detailgenauigkeit zu erreichen.
+\item Anstatt extrem große Texturen zu verwenden, ist es oftmals besser, ein Objekt in Teilobjekte aufzuteilen. Objekttexturen welche größer als 1024px sind, sollten nur extrem selten genutzt werden.
+\item Für die meisten Objekte sollten Texturen mit 256x256px oder 512x512px ausreichen.
+\item Für neue Objekte sollten ''Transparenz aus Bitmap'', ''Transparenzfarbe ist die Farbe des Pixels links/oben'' und ''Schwarz ist transparent''  \emph{nicht mehr} verwendet werden. \abversion{2.8.3}
+\item Die in älteren Versionen notwendigen Größenanpassungen bei transparenten Texturen sind \emph{nicht} mehr notwendig. \abversion{2.8.3}
+\end{itemize}
+
+\subsection{Einfluss der Texturen auf Performance}
+\subsubsection{Texturgröße}
+Ein wichtiger Faktor für die Performance (und damit die erreichbaren fps) ist die Anzahl der so genannten ''Draw Calls.'' Sehr einfach gesagt ist ein Draw Call der Befehl an die Graphikkarte eine (fast) beliebige Anzahl an Dreiecken mit einer bestimmten Textur an einem bestimmten Ort zu zeichnen. Insbesondere bei der derzeit von Loksim verwendeten Graphikschnittstelle spielen diese Draw Calls eine wichtige Rolle.
+Dies bedeutet im Umkehrschluss, dass für die Anzeige von zwei Objekten die eine unterschiedliche Textur nutzen auch zwei Draw Calls notwendig sind.
+
+Unter Berücksichtigung dieser Tatsachen ist es sinnvoll mehrere kleinere Texturen auf einer größeren Textur zusammenzufassen. Insbesondere bei Objekten die (fast) immer gemeinsam angezeigt werden: Beispielsweise die Teilobjekte eines Gruppenobjekts. Jedoch kann diese Optimierung auch für Texturen von mehreren Gruppenobjekten die fast immer ''nebeneinander'' angezeigt werden, Sinn machen. Hierzu gehören zB mehrere Gebäude eines charakteristischen Bahnhofs. Da durch das Zusammenfassen von Texturen eine größere Textur entsteht, sollte man jedoch Texturen von Objekten die häufig nicht miteinander angezeigt/aufgestellt werden, nicht zusammenfassen. Denn kleine Texturen sind sowohl bei der Darstellung als auch beim Laden effizienter.
+
+Andererseits sollten Texturen stets so klein wie möglich sein und den vorhandenen Platz möglichst gut ausnutzen. Auch wenn der Festplattenspeicher (und meist auch der Arbeitsspeicher) heute meistens groß genug ist (Loksim kann als 32Bit Anwendung nicht mehr als 4GB Hauptspeicher nutzen), so sind die Speicher auf - insbesondere integrierten - Graphikkarten nicht immer so groß. Zusätzlich ist zu beachten, dass kleinere Texturen schneller von einem Speicher in den anderen übertragen werden können. Die Wahl einer sinnvollen Texturgröße ist also immer noch wichtig.
+
+Zum einen ist dabei die Überlegung wichtig, wie groß das Objekt für welches die Textur gedacht ist, in der Simulator dann tatsächlich angezeigt wird. Eine Textur für ein Signallicht muss deshalb nur wenige Pixel breit sein. Andere Texturen wie zB die Texturen die für die Himmelsdarstellung verwendet werden, sollten auch für FullHD (1920x1080px) genug Details beinhalten. 4K Monitore können derzeit von Loksim nicht voll ausgenutzt werden und müssen deshalb beim Objektbau (noch) nicht beachtet werden. Eine Hausmauer die beispielsweise hin und wieder den halben Bildschirm des Simulators ausfüllt, kann also ruhig eine Breite von 1024px aufweisen. Größere Texturen sollte man eher vermeiden und bei Bedarf eher das Objekt zweiteilen: Eine Mauer wird zB selten den ganzen Bildschirm ausfüllen und sicherlich oftmals auch nur zum Teil dargestellt werden. Dann ist es effizienter, zwei halb so große Texturen zu benutzen und nicht eine einzige die doppelt so groß ist. Auch ist die Standardeinstellung der maximalen Texturgröße im Loksim derzeit 1024px. Ist eine Textur größer als diese Maximalgröße, wird die Textur beim Laden auf die Maximalgröße verkleinert.
+
+Zusätzlich ist zu beachten, dass zur Laufzeit intern immer mit Texturen die Zweierpotenzen als Seitengröße haben gearbeitet wird. Eine Textur der Größe 200x70px wird also beispielsweise beim Laden auf eine Textur mit 256x128px vergrößert. Die Textur wird dabei nicht tatsächlich ''vergrößert'', sondern es wird ein - nicht benutzter - Rand eingefügt. Die bedeutet, dass eine Textur der Größe 200x70px und eine mit 256x128px zur Laufzeit gleich viel Speicherplatz benötigt. Man könnte also entweder die Textur der Größe 200x70px auf 256x128px vergrößern, um mehr Details darstellen zu können oder man verwendet den ''nicht genutzten Rand'' für ein zweites/weiteres Objekt. Es sei dabei gesagt, dass Texturen die keine Zweierpotenzen als Seitenlängen benutzen ''nur'' den Nachteil der Platzverschwendung haben.
+
+\subsubsection{Transparenz}
+Für transparente Objekte sollten die Optionen ''schwarz ist transparent'', ''Transparenzfarbe ist die Farbe des Pixels links/unten''  und ''Transparenzfarbe aus Bitmap'' nicht mehr verwendet werden. Diese sind beim Laden aufwändiger zu behandeln wie die zwei neuen Methoden. Transparenz sollte bei neuen Objekten also nur mehr durch den Alphakanal in der Textur umgesetzt werden. Dafür stehen zwei Einstellungen zur Verfügung:
+
+\begin{description}
+\item[Transparenz aus Alphakanal – nur sichtbar/unsichtbar]
+Diese Option sollte gesetzt werden, falls die Textur nur vollkommen durchsichtige bzw. undurchsichtige Bereich enthält.
+\item[Transparenz aus Alphakanal – alle Transparenzwerte möglich]
+Diese Option muss gesetzt werden, falls die Textur auch halbtransparente Bereiche enthält.
+\end{description}
+
+Ist man sich nicht sicher, sollte ''Transparenz aus Alphakanal – alle Transparenzwerte möglich'' gesetzt werden. In einer zukünftigen Loksim-Version könnten Objekte mit ''Transparenz aus Alphakanal – nur sichtbar/unsichtbar'' jedoch eventuell schneller dargestellt werden.
+
+\emph{Achtung}: Derzeit gibt es keine Unterscheidung zwischen diesen beiden Optionen. Dies  muss jedoch in Zukunft nicht so sein, und wenn bei einem Objekt fälschlicherweise ''Transparenz aus Alphakanal – nur sichtbar/unsichtbar'' eingestellt ist, kann es zu Fehldarstellungen kommen.
+
+Bei Objekten mit transparenten und nicht-transparenten Flächen (zB ein Fahrzeug mit nicht-transparenter Karosserie und transparenten Scheiben) spielt die Reihenfolge der Flächen eine Rolle. (Halb-) Transparente Flächen sollten dabei unter den undurchsichtigen Flächen angelegt werden bzw. dorthin verschoben werden.
+

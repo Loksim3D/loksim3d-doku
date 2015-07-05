@@ -1,0 +1,24 @@
+\section{Package erzeugen}
+\label{sec:editor.allg.packages}
+
+Ein Package kann über das Menü Datei - Package erzeugen... erstellt werden.
+
+Wird beim Suchen der abhängigen Dateien erkannt, dass eine Datei fehlt wird am Ende des Vorgangs eine Liste mit den fehlenden Dateien gezeigt.\abversion{2.9}
+
+\subsection{Diese Dateien löschen / Packages deinstallieren}
+
+Über die Schaltfläche Datei / Package hinzufügen lassen sich Dateien
+hinzufügen, die bei der Installation des Package gelöscht werden sollen.
+Hierbei ist es wichtig, dass nur Dateien hinzugefügt werden dürfen, die
+sicher nicht von anderen Packages benutzt werden.
+
+Seit Version 2.8.2 können auch ganze Packages hinzugefügt werden. Wird
+ein Package hinzugefügt, wird dieses Package beim Benutzer
+deinstalliert. Die Identifikation des Package erfolgt dabei über eine
+Prüfsumme und nicht über den Dateinamen des Package. Ändert man etwas am
+Inhalt des Package, ändert sich auch dessen Prüfsumme.
+
+Es wird empfohlen bei neuen Versionen einer Strecke oder Führerstand die
+alten Versionen des Package in diese Package deinstallieren Liste
+hinzuzufügen. So werden beim Benutzer stets die nicht mehr benötigten
+Dateien gelöscht

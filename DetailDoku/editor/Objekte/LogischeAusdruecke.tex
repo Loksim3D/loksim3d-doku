@@ -1,0 +1,354 @@
+\section{Logische Ausdrücke}
+\label{sec.editor.obj.logischeausdruecke}
+
+Bei Streckenobjekten, Gruppenobjekten und Streckensounds können logische
+Ausdrücke definiert werden, welche bestimmen ob das Objekt angezeigt
+wird oder nicht (bzw der Sound abgespielt wird oder nicht).
+
+In logischen Ausdrücken können Variablen (Operanden) mittels Operatoren
+verknüpft werden: Wird dieser Ausdruck zu einem Wert gleich 0
+ausgewertet, so wird der gesamte Ausdruck als falsch gewertet. Ist der
+berechnete Wert ungleich 0, so ist der gesamte Ausdruck wahr.
+
+\infobox{Dieses Verhalten, die möglichen Operatoren und Priorität
+entsprechen der C/++ Programmiersprache.}
+
+\subsection{Operanden (Variablen)}
+
+\subsubsection{Konstante}
+Es können folgende Arten von Konstanten als Operatoren verwendet werden:
+\begin{description}
+\item[Ganzzahlen] Ganze Zahlen im Bereich $-(2^{31}) + 2$ bis $2^{31} - 1$
+\item[Zeitpunkte] Zeitangaben im Format hh:mm::ss oder hh:mm (Stunden:Minuten:Sekunden). Diese Art von  Angabe wird bei der Auswertung in Sekunden nach 00:00 Uhr umgerechnet.
+\item[Zeichenketten] Zeichenketten - auch Strings oder alphanumerische Werte genannt - sind mit einem Anführungszeichen am Beginn und Ende gekennzeichnet ("<Wert>"). Auch Zeichenketten werden mit einer Hash-Funktion in ganze Zahlen umgewandelt. Es kann deshalb in sehr unwahrscheinlichen Fällen vorkommen, dass zwei unterschiedliche Zeichenketten in die gleiche Ganzzahl umgewandelt werden. Bei Zeichenketten macht nur der Vergleich auf (Un)gleichheit Sinn; Vergleiche wie welche Zeichenkette ist die ''größere'' von zwei werden von Loksim nicht unterstützt und das Ergebnis kann sich von Version zu Version ändern.\abversion{2.9.2}
+\end{description}
+
+\subsubsection{Variablen}
+\label{sec:editor-obj-logischeausdruecke-vars}
+
+Zusätzlich kann auf diverse Daten per Namen zugegriffen werden. Diese
+Daten werden immer mittels \emph{Namensraum::Variablenname}
+angesprochen.
+
+Derzeit sind folgende Namensräume bzw Variablen definiert:
+
+\begin{description}
+\item[\texttt{Sim}]
+Dieser Namensraum enthält alle Eigenschaften die in früheren Versionen über die \emph{nur (un)sichtbar bei} Optionen verfügbar waren.\abversion{2.9}
+Die folgende Auflistung enthält derzeit nur einen Bruchteil der verfügbaren Variablen, alle möglichen Variablen sind über das entsprechende Auswahlfeld im Objekteditor ersichtlich
+\begin{description}
+\item[\texttt{VorSigKennzahlKleiner}]
+Diese Variable ist TRUE, wenn das Haupt- und das Vorsignal am gleichen Standort Kennziffern haben und die Vorsignalkennziffer kleiner als die (Haupt-)Signalkennziffer ist. In allen andern Fällen ist VorSigKennzahlKleiner FALSE.
+\end{description}
+
+
+\item[\texttt{WetterVars}]
+Ermöglicht den Zugriff auf vom Benutzer definierte Variablen in
+Wetterdateien
+\item[\texttt{FahrplanVars}]
+Ermöglicht den Zugriff auf vom Benutzer definierte Variablen in
+Fahrplänen
+\item[\texttt{FahrplanDaten}]
+Ermöglicht den Zugriff auf diverse Daten des Fahrplans
+
+\begin{description}
+\item[\texttt{Abfahrtszeit("\textless{}halt\textgreater{}")}]
+geplante Abfahrtszeit des Halts \textless{}halt\textgreater{} in
+Sekunden
+\item[\texttt{Ankunftszeit("\textless{}halt\textgreater{}")}]
+geplante Ankunftszeit des Halts \textless{}halt\textgreater{} in
+Sekunden
+\item[\texttt{Halt("\textless{}halt\textgreater{}")}]
+Wahr falls der Zug an dieser Haltestelle hält\abversion{2.9}
+\item[\texttt{BedarfshaltBahnsteig("\textless{}halt\textgreater{}")}]
+Wahr falls der Halt ein Bedarfshalt ist und der Haltanzeiger am Bahnsteig aufleuchtet\abversion{2.9}
+\item[\texttt{BedarfshaltZug("\textless{}halt\textgreater{}")}]
+Wahr falls der Halt ein Bedarfshalt ist und der Haltanzeiger im Führerstand aufleuchtet\abversion{2.9}
+
+\end{description}
+
+Innerhalb der Anführungszeichen muss der exakte Name des Halts
+aufgeführt werden. Sollte der Haltname selbst ein Anführungszeichen
+enthalten, muss dieses durch \textbackslash{}" ersetzt werden. Der Halt
+St. Pölten "Hbf" wird damit zu St. Pölten
+\textbackslash{}"Hbf\textbackslash{}"
+\item[\texttt{WetterDaten}]
+Ermöglicht den Zugriff auf vom Programm berechnete Daten zum Wetter
+
+\begin{description}
+\item[\texttt{HelligkeitProzent}]
+Helligkeit im Bereich 0-100
+\end{description}
+
+\item[\texttt{Simulation}]
+Diverse Eigenschaften der Simulation
+\begin{description}
+\item[\texttt{ZeitInSekunden}]
+Seit 00:00 vergangene Sekunden
+\end{description}
+
+\item[\texttt{Sonstige}]
+Sammelkategorie für den Rest
+
+\begin{description}
+\item[\texttt{Zufall}]
+Liefert einen zufälligen Wert im Bereich {[}0;Sehr große Ganzahl{[}
+\item[\texttt{Zuglaenge}]
+Liefert die Länge des Zugs in Metern (inklusive Triebfahrzeug)
+\item[\texttt{ZufallGruppenObjekt}]
+Liefert einen zufälligen Wert im Bereich {[}0;Sehr große Ganzzahl{[},
+welcher für das gesamte Gruppenobjekt gleich ist. Mit dieser Variable
+ist es möglich, mehrere Teilobjekte eines Gruppenobjekts zufällig ein-
+oder auszublenden.
+
+Der Einsatz dieser Variablen macht aus diesem Grund auch nur innerhalb
+eines Gruppenobjekts Sinn
+\end{description}
+\end{description}
+
+Wird auf eine Variable zugegriffen, die nicht definiert ist, so wird
+\emph{0} (falsch) zurückgeliefert
+
+\paragraph{Testen im LoksimEdit}
+
+Zu Testzwecken können im LoksimEdit unter Ansicht - Erweiterte
+3D-Ansichtsoptionen oder Strg+Q \emph{sämtliche} (auch von der Simulation
+vorgegeben, wie ZeitInSekunden) Variablen mit benutzerdefinierten Werten
+belegt werden. Damit kann man Testen, wie die Anzeige mit dieser
+Variablenbelegung aussieht
+
+\subsection{Operatoren}
+
+Operatoren verknüpfen die Operanden miteinander um das Endergebnis zu
+berechnen. Auflistung der verfügbaren Operatoren nach
+\emph{absteigender} Priorität angeordnet (gleiche Hintergrundfarbe
+bedeutet gleiche Priorität):
+
+\begin{longtable}[c]{@{}lll@{}}
+\hline\noalign{\medskip}
+\begin{minipage}[b]{0.08\columnwidth}\raggedright
+Opera-tor
+\end{minipage} & \begin{minipage}[b]{0.77\columnwidth}\raggedright
+Bedeutung
+\end{minipage} & \begin{minipage}[b]{0.15\columnwidth}\raggedright
+Alternative Syntax
+\end{minipage}
+\\\noalign{\medskip}
+\hline\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+!
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logisches \emph{Nicht}, Negation: Wandelt einen Wert ungleich 0 in 0 um
+bzw umgekehrt
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+not
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+*
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+\emph{Multiplikation}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+/
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+ganzzahlige \emph{Division}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\%
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+\emph{Modulo} (Rests der Division)
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
++
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+\emph{Addition}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
++
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+\emph{Subtraktion}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\textless{}
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logischer Vergleich: \emph{kleiner}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\textless{}=
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logischer Vergleich: \emph{kleiner oder gleich}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\textgreater{}
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logischer Vergleich: \emph{größer}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\textgreater{}=
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logischer Vergleich: \emph{größer oder gleich}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+==
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logischer Vergleich auf \emph{Gleichheit}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+!=
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logischer Vergleich \emph{ungleich}
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+\textless{}\textgreater{}
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\&\&
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logische Verknüpfung \emph{und}; liefert wahr, falls beide Operanden
+wahr sind
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+and
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+\textbar{}\textbar{}
+\end{minipage} & \begin{minipage}[t]{0.77\columnwidth}\raggedright
+logische Verknüpfung \emph{oder}; liefert wahr, falls einer der
+Operanden wahr ist
+\end{minipage} & \begin{minipage}[t]{0.15\columnwidth}\raggedright
+or
+\end{minipage}
+\\\noalign{\medskip}
+\hline
+\noalign{\medskip}
+\caption{Operatoren in logischen Ausdrücken}
+\end{longtable}
+
+\subsection{Funktionen}
+
+\subsubsection{\texttt{Funktionen::TimeDif()}}
+
+Diese Funktion berechnet die Zeitdifferenz zwischen zwei Zeitpunkten und
+beachtet dabei die Möglichkeit des Tageswechsels. Die genau Logik der
+Funktion lautet:
+
+\begin{lstlisting}
+    int TimeDif(Zeit1, Zeit2)
+    {
+        Falls (Zeit1 < Zeit2)
+        {
+            Ergebnis = Zeit1 + SEKUNDEN_PRO_TAG - Zeit2
+        }
+        Sonst
+		{
+			Ergebnis = Zeit1 - Zeit2
+		}
+        return Ergebnis
+    }       
+\end{lstlisting}
+
+\subsection{Beispiele}
+
+Um das ganze etwas klarer zu machen, ein paar Anwendungsfälle:
+
+Ein Objekt soll nur zwischen 22:00 und 05:00 Uhr angezeigt werden, oder
+wenn die Helligkeit kleiner als 20 \% ist:
+
+\begin{lstlisting}
+Simulation::ZeitInSekunden >= 22:00 ||
+        Simulation::ZeitInSekunden <= 05:00 || 
+        WetterDaten::HelligkeitProzent < 20
+\end{lstlisting}
+
+Ein Sound soll nur zur vollen Stunde abgepielt werden, aber nicht nach
+20:00 bzw vor 06:00 Uhr:
+
+\begin{lstlisting}
+Simulation::ZeitInSekunden % (60 * 60) <= 2 &&
+        !(Simulation::ZeitInSekunden > 20:00 ||
+        Simulation::ZeitInSekunden < 06:00)
+\end{lstlisting}
+
+Eine optimierte, gleichwertige Version wäre:
+
+\begin{lstlisting}
+Simulation::ZeitInSekunden % 3600 <= 2 &&
+        Simulation::ZeitInSekunden <= 20:00 &&
+        Simulation::ZeitInSekunden <= 06:00 )
+\end{lstlisting}
+				
+Erklärung: Zu jeder vollen Stunde ist die ZeitInSekunden durch 3600 ohne Rest
+teilbar. Dies bedeutet ZeitInSekunden \% 3600 ergibt 0. Wenn man nun
+dies exakt mit 0 vergleicht, würde der Sound nur abgespielt, falls es
+exakt die volle Stunde ist. Für uns ist jedoch ein kleiner Spielraum von
+2 Sekunden ok, also wird mit \textless{}= 2 geprüft, sodass der Sound
+auch 1 oder 2 Sekunden nach der vollen Stunde gestartet werden kann
+
+Ein Objekt soll mit 60\%iger Wahrscheinlichkeit angezeigt werden:
+\texttt{Sonstige::Zufall \% 100 \textless{} 60} Erklärung: Zufall
+liefert eine zufällige Zahl im Bereich 0 bis sehr große Zahl. Rechnet
+man diese Zahl modulo 100 (Rest der Division der Zahl durch 100) bekommt
+man eine zufällige Zahl im Bereich {[}0;100{[} In 60\% der Fälle ist
+diese Zahl kleiner als 60, und in den anderen 40 Prozent größer gleich
+60. Also hat man genau die 60\%ige Wahrscheinlichkeit
+
+Differenz zur Abfahrtszeit des Halts \emph{h0 ''ui''}
+
+\begin{lstlisting}
+Funktionen::TimeDif( 
+        FahrplanDaten::Abfahrtszeit("h0 \"ui\""), 
+        Simulation::ZeitInSekunden) / 60)
+\end{lstlisting}
+
+Ein Objekt soll nur angezeigt werden, falls der - händisch in den Fahrplanvariablen - gesetzte Endbahnhof ''Hintertupfingen'' ist:\abversion{2.9.2}
+
+\begin{lstlisting}
+FahrplanVars::Endbahnhof == "Hintertupfingen"
+\end{lstlisting}
+
+\subsection{Einfluss auf Performance}
+
+Bei großflächigem Einsatz von logischen Ausdrücken, sollte man etwaige
+Auswirkungen auf die Performance bedenken:
+
+\begin{itemize}
+\item
+  Objekte bei denen \emph{Objekt in Sichtweite ändert Sichtbarkeit
+  nicht} gesetzt ist, haben kaum Einfluss auf die Performance: Solche
+  Ausdrücken müssen während der Simulation nur ein einziges Mal
+  berechnet werden und sind anschließend fixiert
+\item
+  Auch konstante Ausdrücke (kein Zugriff auf Variablen außer
+  Sonstige::Zufall) müssen nur ein einziges Mal berechnet werden
+\item
+  Sonstige logische Ausdrücke bei Objekten werden regelmäßig (mehrmals
+  pro Sekunde) neu berechnet, solange sich die Objekte in sichtbarer
+  Entfernung befinden
+\item
+  Nicht-konstante, logische Ausdrücke bei Sounds, werden "regelmäßig"
+  (mehrmals pro Sekunde) neu berechnet, solange sich die Lok im
+  Gültigkeitsbereich des Sounds befindet
+\item
+  Es werden keinerlei Optimierungen der Ausdrücke vorgenommen!
+\end{itemize}

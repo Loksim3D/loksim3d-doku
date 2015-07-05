@@ -1,0 +1,80 @@
+\section{Übersicht}
+
+Der PackageManager wird zur (De)installation von Loksim Packages
+verwendet. Loksim Packages besitzen im Normalfall die Dateiendung
+.l3dpack (teilweise auch .zip).
+
+Im Normalfall wird beim Öffnen einer .l3dpack Datei automatisch der
+PackageManager gestartet. Ein Klick auf Installation starten startet die
+Installation. Wird ein Package nicht mehr benötigt, kann es im Tab
+Packages deinstallieren wieder von der Festplatte gelöscht werden. Dabei
+werden eventuelle Abhängigkeiten von anderen Packages beachtet und
+auschließlich nicht mehr benötigte Dateien gelöscht
+
+\section{Funktionsweise}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Bei jeder Installation eines Packages protokolliert der Manager welche
+  Dateien installiert wurden. So kann er bestimmen, welche Dateien von
+  welchen Packages benötigt werden. Bei der Deinstallation eines
+  Packages werden jene Dateien gelöscht, die ansonsten von keinem
+  Package mehr benötigt werden. Dateien die bereits im
+  Loksim-Verzeichnis existieren, werden niemals gelöscht (es ist im
+  Nachhinein nicht bestimmbar, welche Packages welche Dateien benötigen;
+  bzw welche Packages überhaupt installiert sind)
+\item
+  Wie bisher werden bestehende Dateien in den Backup Ordner kopiert,
+  falls sie bei einer Package Installation überschrieben werden. Bei
+  einer Deinstallation werden sämtliche gelöschten Dateien ebenfalls in
+  den Backup Ordner verschoben
+\item
+  Bei der Deinstallation von Packages muss man sich im Klaren sein, dass
+  nicht exakt der Zustand "vor der Installation" wiederhergestellt wird:
+  Beispiel: Man installiert das Package A und dann B. Beide installieren
+  die Datei x (im Package B ist die Datei x neuer). Bei der
+  Deinstallation von Package B bleibt jedoch die Datei x, die bei der
+  Installation von Package B kopiert wurde, zurück.
+\item
+  Über die Optionen ist die Funktion  \emph{Installation rückgängig machen} aktivierbar: Im Gegensatz zur Deinstallation eines Package, kopiert
+  diese Funktion die gesicherten überschriebenen Dateien aus dem Backup
+  Verzeichnis zurück in das Loksim-Verzeichnis. Jedoch ist diese
+  Funktion immer nur für das zuletzt installierte Package anwendbar und
+  nicht für früher installierte Packages.
+
+ \emph{Wichtig:  Deinstallierte Packages können nicht wiederhergestellt werden!}
+\end{itemize}
+
+\section{Deinstallation während Installation}\abversion{2.8.2}
+
+Wie im Abschnitt über \hyperref[sec:editor.allg.packages]{Package
+erzeugen} beschrieben wird, können bei der Installation eines neuen
+Package gleichzeitig ältere Packages deinstalliert werden.
+
+Die Motivation dahinter ist, dass es oftmals neuere Versionen von
+Packages gibt wo sich die Ordnerstrukturen ändern, manche Objekte nicht
+mehr gebraucht werden oder Duplikate gelöscht wurden. Installiert der
+Benutzer diese neue Version, bleiben jedoch die alten, nicht mehr
+gebrauchten Dateien trotzdem im Loksim Verzeichnis zurück. Bei
+Führerständen und Fahrplänen kann dies sogar zur Verwirrung des
+Benutzers führen, bei sämtlichen anderen Dateien bleiben unschöne
+''Leichen'' im Loksim Verzeichnis zurück die nicht mehr gebraucht werden
+
+Wird jedoch beim Erzeugen des Package darauf geachtet, dass sämtliche
+älteren Versionen des Package bei der Installation der neuen Version
+gelöscht werden, gibt es solche Probleme nicht. Technisch betrachtet
+verhält sich die Deinstallation eines Package während der Installation
+eines anderen Package so, als würde man zuvor manuell die Deinstallation
+der älteren Packages vornehmen. Jedoch ist der Mechanismus etwas
+ausgewachsener, sodass wirklich nur jene Dateien gelöscht bzw. kopiert
+werden, bei denen es tatsächlich auch nötig ist. So sind in der
+Übersicht der installierten Dateien wirklich nur neuere Versionen zu
+sehen
+
+\emph{Einschränkungen:} Bei dieser Art von Deinstallation ist es nicht
+möglich auszuwählen, welche Dateien exakt deinstalliert werden sollen.
+Packages werden hierbei ganz oder gar nicht deinstalliert. Außerdem
+bleibt das Prinzip erhalten, dass Deinstallationen nicht rückgängig
+gemacht werden können! Weder über die Package deinstallieren, noch über
+die Installation rückgängig machen Funktion

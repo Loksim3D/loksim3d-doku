@@ -1,0 +1,111 @@
+\documentclass[11pt, a4paper]{refrep}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{longtable}
+\usepackage[unicode=true]{hyperref}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[german]{fancyref}
+
+\usepackage{gensymb}
+
+%%%% Custom Command for Infoboxes
+%%%% usage: \infobox{<text>}         
+ \newcommand{\infobox}[1]{
+		\medskip
+		#1
+     \medskip
+ }
+ 
+%%%% Kommando für "ab Version xxx verfügbar"
+%%%% usage: \abversion{<version>}         
+ \newcommand{\abversion}[1]{
+		\hfill ab \emph{#1}\\
+ }
+
+
+\begin{document}
+\author{Ralf Gryga \and Lukas Haselsteiner \and Uwe Klein \and Martin Mory} 
+\title{Loksim3D Funktionsdokumentation} 
+\date{Juli 2015} 
+
+\maketitle
+
+
+\chapter{Vorwort}
+Herzlich Willkommen zur Funktionsdokumentation des Loksim3D. Diese
+Dokumentation stellt eine Beschreibung neuer Funktionen ab
+Version 2.8.2 dar. Diese Dokumentation dient hauptsächlich für erfahrende Loksimmer 
+und soll insbesondere möglichst viel Informationen zum
+Objekt-, Führerstand- und Streckenbau bieten.
+
+Wir hoffen, dass nach dem Studium der Basisdokumentation diese Datei
+eine gute Hilfeleistung für weiterführende Themen bieten kann. Wir
+freuen uns über jedes neue Addon für den Loksim - probieren Sie den
+LoksimEdit einfach selbst aus.
+
+Der Loksim ist ein Freeware-Projekt und wird von den Projektbeteiligten
+auschließlich in der Freizeit weiterentwickelt. Wenn Sie Interesse an
+einer Mitarbeit am Loksimprojekt haben, freuen wir uns über Ihre
+Nachricht. Es gibt viel zu tun, u.a.
+
+\begin{itemize}
+\item
+  Programmierung neuer oder verbessern bestehender Funktionen: 
+  Für eine Mitarbeit sollten objektorientierte und prozedurale 
+  Prinzipien kein Problem sein und C++ beherrscht werden
+\item
+  Bei der Dokumentation des Loksims mithelfen
+\item
+  Beim Übersetzen des Programms bzw. der Dokumentation helfen
+\item 
+  (Mit)arbeit an einer neuen Demo-Strecke bzw. Lok
+\item ...
+\end{itemize}
+
+\clearpage
+
+%\chapter{Versionshistorie}
+\input{Versionen.tex}
+
+\tableofcontents 
+
+%\mainmatter
+\part{Simulator}
+\chapter{Steuerung}
+\input{sim/Steuerung.tex}
+\chapter{Optionen}
+\input{sim/Optionen.tex}
+\chapter{PackageManager}
+\input{sim/PackageManager.tex}
+
+\part{Editor}
+\chapter{Objekte}
+\input{editor/Objekte/Objekte.tex}
+\input{editor/Objekte/Textur.tex}
+\input{editor/Objekte/LogischeAusdruecke.tex}
+\input{editor/Objekte/Sichtbarkeitssteuerung.tex}
+\input{editor/Objekte/DynamischeSchriften.tex}
+
+\chapter{Strecken}
+\input{editor/Strecke/Gleis.tex}
+\input{editor/Strecke/Objekte.tex}
+			
+\chapter{Loks}
+\input{editor/Lok/LokeditorFuehrerstand.tex}
+\input{editor/Lok/Antriebsdaten.tex}
+\input{editor/Lok/LokeditorPzb.tex}
+\input{editor/Lok/LokeditorDiverses.tex}
+
+\chapter{Wettereditor}
+\input{editor/Wettereditor.tex}
+
+\chapter{Allgemeines}
+\input{editor/UeberschriebeneDateien.tex}
+\input{editor/PackageErstellen.tex}
+\input{editor/Logging.tex}
+
+\end{document}

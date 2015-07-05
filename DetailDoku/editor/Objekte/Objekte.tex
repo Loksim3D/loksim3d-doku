@@ -1,0 +1,62 @@
+\label{sec:editor-obj}
+Bis zur Version 2.8.3 war das Objektsystem des Loksims relativ einfach unterteilt: Sämtliche 3D-Objekte waren entweder einfache Objekte (.l3dobj) oder Gruppenobjekte (.l3dgrp), wobei Gruppenobjekte aus beliebig vielen Objekten (.l3dobj) und Schriften bestehen konnten.
+
+Ab Version 2.9 ist das System flexibler gestaltet: Wie bisher sind einfache .l3dobj Objekte und Gruppenobjekte .l3dgrp die ''Eckpfeiler'' des Objektsystems. Jedoch können Gruppenobjekte nun aus beliebigen Objekte die von Loksim unterstützt werden bestehen. Dies heißt, Gruppenobjekte können wiederum andere Gruppenobjekte beinhalten und auch \hyperref[sec:editor-obj-externe]{Objekte in externen Dateiformaten}.
+
+
+\section{Objekte}
+\label{sec:editor-obj-l3dobj}
+Objekte (.l3dobj) sind das Grundgerüst für die 3D-Welt. Objekte bestehen aus Punkten und Flächen.
+
+\subsection{Objekteigenschaften}
+\begin{description}
+\item[Textur und Transparenz]\hyperref[sec:editor-obj-textur]{nähere Details}
+\item[Rückseiten sichtbar] Normalerweise ist eine Fläche immer nur von einer Seite sichtbar, wobei die sichtbare Seite anhand der Reihenfolge der Punkte einer Fläche abhängig ist. Wird diese Option gesetzt, sind alle Flächen von beiden Seiten sichtbar. Diese Option sollte nur bei kleinen oder selbstleuchtenden Objekten gesetzt werden, normalerweise sollte explizit eine Rückseite mittels zweiter Fläche eingefügt werden. Nur so ist eine ordentliche Beleuchtung von beiden Seiten möglich
+\item[selbst leuchtend] Wird diese Option gewählt wird das Objekt nicht durch das Beleuchtungssystem beleuchtet, dadurch gibt sich ein Effekt als würde das Objekt selbst leuchten. Normalenvektoren sind bei selbst leuchtenden Objekten nicht relevant
+\item[Objekt dreht mit dem Betrachter mit] Wird diese Option gesetzt, dreht sich das Objekt immer so, dass die Vorderseite zum Betrachter zeigt. So können flache Objekte aus gewisser Entfernung wie plastische Objekte wirken. 
+\item[Normalenvektor pro Fläche] Ist diese Option gewählt, werden die Normalenvektoren nicht wie sonst pro Punkt eingegeben, sondern pro Fläche (\hyperref[sec:editor-obj-l3dobj-normalen]{nähere Details})\abversion{2.9}
+\end{description}
+
+
+\subsection{Punkte}
+Jeder Punkt hat eine bestimmte Position im Raum und kann einen Normalenvektor enthalten.
+
+\subsection{Flächen}\abversion{2.9}
+\label{sec:editor-obj-l3dobj-flaeche}
+Flächen bestehen aus drei oder mehr Punkten in \emph{einer Ebene}. Bei der Definition einer Fläche dürfen keine Löcher entstehen. Mit eine Rechtsklick auf eine Fläche kann automatisch die Rückseite zu der gewählten Fläche eingefügt werden.
+
+\subsection{Normalenvektoren}\abversion{2.9}
+\label{sec:editor-obj-l3dobj-normalen}
+Normalenvektoren werden zur Beleuchtung von Objekten verwendet. Bei ''eckigen Oberflächen'' sollten die Normalenvektoren immer \emph{senkrecht} auf die Fläche stehen. Bei ''runden Oberflächen'' kann durch die richtige Wahl der Normalenvektoren der Eindruck der runden Oberfläche verbessert werden. Diese Anleitung kann keine genaue Einführung in Normalenvektoren geben, erfahrene Objektbauer können aber an vielen Stellen im Internet genauere Details dazu finden. Normalenvektoren sind kein Konzept des Loksims, sondern werden  generell in der 3D-Modellierung und -Darstellung genutzt.
+
+Da Loksim bisher recht gut mit komplett falsch gesetzten Normalenvektoren umgegangen ist, hat sich beim Loksim-Objektbau eine gewisse Schlampigkeit bzgl. Normalenvektoren entwickelt. Ab Version 2.9 gibt es deshalb eine gravierende Änderung: Standardmäßig wird bei Objekten die Option \emph{Normalenvektor pro Fläche} gesetzt. Wird diese Option verwendet, kann es keine unterschiedlichen Normalenvektoren pro Fläche geben. Außerdem steht über das Menü - Bearbeiten die Funktion \emph{Normalenvektoren automatisch berechnen} zur Verfügung. Diese erzeugt Normalenvektoren die senkrecht auf die jeweilige Fläche stehen. Für die meisten Objekte sollte diese Option ausreichen. Für runde Objekte muss diese Einstellung jedoch deaktiviert werden und die Normalenvektoren wie bisher pro Punkt definiert werden.
+
+Da Loksim in Zukunft ein verbessertes Beleuchtungssystem bekommen wird, gibt es folgende Regelung: Bei Objekten die mit Version 2.9 oder neuer erstellt oder abgeändert wurden wird angenommen, dass sie mit korrekten Normalenvektoren ausgestattet sind. Ältere Objekte werden vorraussichtlich anders verarbeitet werden, sodass falsche Normalenvektoren nicht so sehr ins Gewicht fallen.
+
+\subsection{Zoomen/Verschieben}\abversion{2.9}
+\label{sec:editor-obj-l3dobj-punkteverschieben}
+Über das Bearbeiten Menü stehen die Funktionen \emph{Punkte verschieben/zoomen} und \emph{Objekt am Nullpunkt zentrieren} zur Verfügung. Bei erster kann gewählt werden welche Punkte verschoben/gezoomt werden sollen und um welchen Wert die Änderung erfolgen soll. Bei zweiter Funktion wird automatisch der Nullpunkt des Objekts berechnet und der Dialog zum Verschieben aller Punkte geöffnet. Hier sind bereits die Werte eingetragen welche nötig sind, um das Objekt in den Nullpunkt zu verschieben. Die Werte können vor dem Verschieben noch angepasst werden.
+
+\section{Gruppenobjekte}\abversion{2.9}
+\label{sec:editor-obj-grp}
+Gruppenobjekte können beliebige andere von Loksim unterstützte Objekte enthalten. Für jedes Objekt kann die Position, Rotation und Skalierung für jede Achse eingestellt werden. Außerdem können einzelne Objekte mit der \hyperref[sec:editor-obj-sichtbarkeitssteuerung]{Sichtbarkeitssteuerung} ein- und ausgeblendet werden.
+
+Die 2D-Vorschau unterstützt derzeit nur loksim-eigene Formate, externe Objektformate werden in der 2D-Vorschau nicht angezeigt.
+\subsection{Verschieben}\abversion{2.9}
+\label{sec:editor-obj-grp-verschieben}
+Über das Bearbeiten Menü stehen die Funktionen \emph{Punkte verschieben} und \emph{Objekt am Nullpunkt zentrieren} zur Verfügung. Bei erster kann gewählt werden welche Objekte verschoben werden sollen und um welchen Wert die Änderung erfolgen soll. Bei zweiter Funktion wird automatisch der Nullpunkt des Objekts berechnet und der Dialog zum Verschieben aller Objekte geöffnet. Hier sind bereits die Werte eingetragen welche nötig sind um das Gesamtobjekt in den Nullpunkt zu verschieben. Die Werte können vor dem Verschieben noch angepasst werden.
+
+
+\section{Externe 3D-Objektmodellformate}\abversion{2.9}
+\label{sec:editor-obj-externe}
+Es besteht die Möglichkeit alle von Assimp\footnote{\url{http://assimp.sourceforge.net/main_features_formats.html}} unterstützten externe Objektformate zu verwenden. Allerdings ist das Objektsystem immer noch auf .l3dgrp und .l3dobj Dateien ausgerichtet. Alles was also nicht mittels .l3dgrp oder .l3dobj Dateien möglich ist, kann derzeit auch nicht durch externe Formate umgesetzt werden.
+
+Je nach Bedarf der Objektbauer wird die Unterstützung externer Dateiformate noch erweitert werden.
+
+\subsection{Konvertieren externer 3D-Objektmodellformate}
+\label{sec:editor-obj-externe-konvertieren}
+Über die Kommandozeile lassen sich alle unterstützen Dateiformate in Loksim Gruppen(objekte) umwandeln. Dafür muss der LoksimEdit in der Konsole folgenderweise aufgerufen werden:
+\begin{verbatim}
+LoksimEdit -convert <Pfad Quellobjekt> <Pfad Zielobjekt>
+\end{verbatim}
+Der ''Pfad Zielobjekt'' sollte dabei auf eine nicht existierende Datei in einem \emph{leeren} Ordner verweisen. Beim Konvertieren werden möglicherweise mehrere Dateien erstellt, bestehende Dateien die zufällig den gleichen Namen tragen werden dabei ohne Rückfrage überschrieben.

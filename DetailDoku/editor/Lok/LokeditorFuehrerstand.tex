@@ -1,0 +1,12 @@
+\section{Führerstand}
+\label{sect.editor.lok.fst}
+Loksim unterstützt derzeit nur 2D-Führerstände. Der Füherstand besteht aus einer einzelnen Textur auf welche die Instrumente und Schalter gezeichnet werden
+\begin{description}
+\item[Bitmap] Führerstandsbild
+\item[Bitmap Nacht] Führerstandsbild, welches in der Nacht bzw. bei Dunkelheit angezeigt wird. Tag- und Nachtführerstandsbild werden dabei linear überblendet um einen fließenden Übergang zu erreichen. Dafür wird im Normalfall die aktuelle (Wetter)helligkeit herangezogen. Ist in der Strecke jedoch eine spezielle Beleuchtung des Gleises eingetragen, werden diese Beleuchtungseinstellungen verwendet.\\
+Es ist zu beachten, dass sich die Instrumente bei Nacht- und Tagführerstand exakt an den gleichen Positionen befinden müssen und die Bitmaps exakt gleich groß sein müssen. Außerdem muss die gleiche Transparenzfarbe verwendet werden bzw. bei beiden Bitmaps der Alphakanal verwendet werden.\abversion{2.8.3}
+\item[Streckenfenster] Hier müssen die Koordinaten bzw. die Größe des Streckenfensters eingetragen werden. In diesem Bereich wird die 3D-Landschaft hineingezeichnet.
+\item[Transparentfarbe] Falls \emph{Transparenz aus Alphakanal} nicht gewählt wird, werden alle Pixel welche die hier angegebene Farbe besitzen vollständig transparent dargestellt.
+\item[Transparenz aus Alphakanal] Wird diese Option gewählt, wird die Transparenz aus dem Alphakanal des Bitmaps genommen. Damit können auch halbtransparente Bereiche definiert werden.\abversion{2.8.3}
+\item[Auflösung] Größe des Führerstandsbild
+\end{description}

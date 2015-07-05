@@ -1,0 +1,18 @@
+\section{Türsteuerung}
+\begin{description}
+\item[mind. Türschliesszeit (Sek)] Geben Sie hier an, wieviele Sekunden die Türen mind. zum Schließen benötigen. Durch div. Einflüsse kann das Schließen auf ggf. zufällig länger dauern.
+\item[Deaktiver Türmelder (Gtz)] Geben Sie hier an, welchen Melderzustand bei Güterzugdienst verwendet werden soll. Sie können zwischen Zustand ein bzw. aus wählen.
+\item[Türsnd (schliessen)] Geben Sie hier die Sounddatei an, die während des Schließen der Türen abgespielt werden soll. Das Geräusch darf nur ein Dauerton beinhalten.
+\item[Türsnd (geschlossen] Geben Sie hier die Sounddatei an, die nach dem Schließen der Türen abgespielt werden soll. Das Geräusch darf nur ein Dauerton beinhalten.
+\item[Türsnd (öffnen)] Geben Sie hier die Sounddatei an, die während des Öffnen der Türen abgespielt werden soll.
+\end{description}
+Für ein optimales Zusammenspiel von Sound und Anzeigen im Führerstand, sollte die \emph{mind. Türschließzeit} der Dauer der wav-Datei \emph{TürSnd (schließen)} entsprechen.
+
+\section{Diverses}
+\subsection{Wegmessung / Zuglängenzähler}\abversion{2.8.3}
+Der \hyperref[sec.sim.steuerung.diverses.wegmessung]{Zuglängenzähler} besteht im Loksim aus zwei Sounds:
+\begin{description}
+\item[Sound Wegmessung Beginn] Dieser Sound wird beim Start der Wegmessung abgespielt (optional)
+\item[Sound Wegmessung Ende] Dieser Sound wird nachdem eine Zuglänge zurückgelegt wurde abgespielt
+\item[Wegmessung aktivierbar ab x km/h] Falls diese Einstellung auf einen Wert größer als 0 eingestellt ist, lässt sich die Wegmessung erst ab der eingestellten Geschwindigkeit starten und nicht im Stillstand
+\end{description}

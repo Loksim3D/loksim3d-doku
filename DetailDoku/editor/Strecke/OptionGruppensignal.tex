@@ -1,0 +1,9 @@
+\paragraph{Option Gruppensignal}
+\label{paragraph.editor.gleis.gleiseigenschaften.signal.optiongruppensignal}
+
+Wenn diese Option aktiviert ist, wird nicht nur \textbf{nach} dem Signal nach der tiefsten Geschwindigkeitslimite gesucht, die am Signal gezeigt werden soll, sondern auch \textbf{vor} dem Signal. Dabei gilt folgende Regel: Es wird im Bereich +/- 1000 m ab Signal gesucht. Innerhalb dieses Bereichs wird die Suche zusätzlich begrenzt durch das nächst stehende Hauptsignal oder einen Haltepunkt. Wird keine Limite gefunden, wird die aktuell gültige Limite verwendet.
+
+Einrichten eines Gruppenausfahrsignals
+Neues Signal definieren nach letzter Weiche auf Ausfahrseite (muss an Gleis liegen, welches auf die Strecke führt). Häckchen setzen bei Option "Gruppensignal". Haltepunkte eintragen in den Bahnhofgleisen. In jedem Bahnhofgleis Geschwindigkeitslimite eintragen, die am Gruppenausfahrsignal angezeigt werden soll (z.B. Gleis 1 (Nebengleis) 40 km/h, Gleis 2 (Durchfahrgleis) 120 km/h, Gleis 3 (Überholgleis) 60 km/h). Die Limiten müssen nach dem jeweiligen Haltepunkt und vor dem Gruppenausfahrsignal eingetragen werden (z.B. Position Haltepunkt: 2500, Position Limite: 2501, Position Gruppenausfahrsignal: 2700).
+
+Tipp: Ist die Bahnhofeinfahrgeschwindigkeit verschieden von der Ausfahrgeschwindigkeit, kann das Einfahrsignal ebenfalls als Gruppensignal definiert werden und Limiten vor dem Haltepunkt für die jeweiligen Gleise gesetzt werden. Dadurch wird erreicht, dass nur Limiten bis zum Haltepunkt gesucht werden und nicht bis zum nächsten Signal, wie es der Fall wäre ohne Option "Gruppensignal".
