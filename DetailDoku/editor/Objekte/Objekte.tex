@@ -60,3 +60,13 @@ Je nach Bedarf der Objektbauer wird die Unterstützung externer Dateiformate noc
 LoksimEdit -convert <Pfad Quellobjekt> <Pfad Zielobjekt>
 \end{verbatim}
 Der ''Pfad Zielobjekt'' sollte dabei auf eine nicht existierende Datei in einem \emph{leeren} Ordner verweisen. Beim Konvertieren werden möglicherweise mehrere Dateien erstellt, bestehende Dateien die zufällig den gleichen Namen tragen werden dabei ohne Rückfrage überschrieben.
+
+\section{Gleise}
+\label{sec:editor-gleise}
+Gleise sind spezielle - von Loksim selbst erzeugte - Objekte. Das Aussehen der Gleise wird mittels .l3drail Dateien beschrieben.
+
+\begin{description}
+\item[Transparenz] Wie bei herkömmlichen Objekten können auch Gleise teilweise transparent sein. Nähere Details dazu findet man im Abschnitt über \hyperref[sec:editor-obj-transparenz]{Transparenz bei Objekten}\abversion{2.9.3}
+\item[Normalenvektoren senkrecht] Bis Version 2.9.2 wurden sömtliche Normalenvektor bei den generierten Gleise auf 0/1/0 gestellt. Wird die Option ''Normalenvektoren senkrecht'' aktiviert, werden die Normalenvektoren korrekt berechnet und stehen immer senkrecht zur jeweiligen Fläche.\abversion{2.9.3}
+\item[Keine 3D-Darstellung] Ein beliebter Trick für die Landschaftdarstellung und Objektpositionierung ist das Anlegen unsichtbarer Gleise. Wird diese Option gewählt ist dies ein Hinweis für das Programm, dass entsprechende Gleise nicht für die Darstellung in 3D verwendet werden, sondern nur Hilfsgleise für Objekte bzw. Landschaft sind. Dies führt zur Reduzierung von Ladezeiten und Verbesserung der fps\abversion{2.9.3}
+\end{description}

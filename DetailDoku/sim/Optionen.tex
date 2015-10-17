@@ -14,3 +14,17 @@ Dialogboxen wie ''Loksim wirklich beenden?'' oder ''Halt überfahren - Zurück z
 \begin{description}
 \item[Doppelklick auf Sifa-Taste startet Wegmessung] Diese Option ist für Loks relevant, welche mit einem Zuglängenzahler / Wegmessung ausgestattet sind. Falls diese Einstellung aktiviert ist, kann die Wegmessung mit zweimaligem Drücken der Sifa-Taste oder zweimaligem Loslassen der realen Sifa-Taste (Joysticksteuerung), gestartet werden.\abversion{2.8.3}
 \end{description}
+
+\section{Konfigurationsdateien}
+\subsection{Datenpfade}
+\label{sec:sim-optionen-paths}
+Loksim unterscheidet zwischen zwei grundsätzlichen Orten an denen wichtige Dateien abgelegt werden:
+\begin{description}
+\item[Programmverzeichnis] Hier werden die ausführbaren Programmdateien und einige essentielle sonstige Dateien die unbedingt zum Betrieb benötigt werden abgelegt. Standardmäßig befindet sich dieses Verzeichnis unter Programm-Verzeichnis/Loksim3D
+\item[Datenverzeichnis] In diesem Verzeichnis werden Addons/Packages bzw. auch das Loksim-Standardpackage abgelegt. Standardmäßig befindet sich dieses Verzeichnis unter Öffentliche-Dokumente/Loksim3D
+\end{description}
+Beide Verzeichnisse können bei der erstmaligen Installation von Loksim3D eingestellt werden und mittels ''Über Loksim'' angezeigt werden. Es ist auch möglich, dass beides auf das gleiche Verzeichnis verweißt.
+
+Im selben Verzeichnis wie Loksim3D.exe bzw. LoksimEdit.exe (Programmverzeichnis) wird für diesen Zweck eine Datei paths.ini abgelegt. In dieser wird das Datenverzeichnis angegeben. Hierbei sind sowohl relative als auch absolute Pfadangaben möglich.
+
+Alternativ kann auch ''<Registry>'' angegeben werden: Dann wird der Pfad aus der Registry ausgelesen, welcher bei der letzten Installation von Loksim3D als Datenverzeichnis angegeben wurde.\abversion{2.9.3}

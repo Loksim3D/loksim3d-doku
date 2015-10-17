@@ -7,9 +7,9 @@ Texturen sind Bilder welche auf auf die dreidimensionalen Objekte aufgebracht we
 Zusätzlich können Objekte mit einer Transparenzkomponente ausgestattet werden, um (halb)durchsichtige Oberflächen umzusetzen. Dafür werden folgende Techniken angeboten:
 \begin{description}
 \item[nicht transparent] Unahbängig von der verwendeten Textur wird das Objekt vollständig undurchsichtig dargestellt
-\item [Schwarz ist transparent] Alle Bereich die komplett schwarz sind (0x000000), werden transparent dargestellt.
-\item [Transparenzfarbe ist die Farbe des Pixels links/oben] Alle Bereiche welche die exakt gleiche Farbe wie das Pixel in der linken, oberen Ecke haben, werden transparent dargestellt
-\item [Transparenz aus Bitmap (Weiß undurchsichtig...)] Für diesen Typ muss eine zweite Bilddatei angegeben werden. Die Transparenz wird dann mittels dieser zweiten Datei bestimmt, wobei Weiß undurchsichtig ist, schwarz komplett transparent und die Graustufen dazwischen halbdurchsichtige Bereiche ergeben.
+\item [Schwarz ist transparent] Alle Bereich die komplett schwarz sind (0x000000), werden transparent dargestellt (für neue Objekte nicht mehr empfohlen).
+\item [Transparenzfarbe ist die Farbe des Pixels links/oben] Alle Bereiche welche die exakt gleiche Farbe wie das Pixel in der linken, oberen Ecke haben, werden transparent dargestellt (für neue Objekte nicht mehr empfohlen)
+\item [Transparenz aus Bitmap (Weiß undurchsichtig...)] Für diesen Typ muss eine zweite Bilddatei angegeben werden. Die Transparenz wird dann mittels dieser zweiten Datei bestimmt, wobei Weiß undurchsichtig ist, schwarz komplett transparent und die Graustufen dazwischen halbdurchsichtige Bereiche ergeben. (für neue Objekte nicht mehr empfohlen)
 \item [Transparenz aus Alphakanal - alle Transparenzwerte möglich] Die Transparenz wird aus dem Alphakanal der Textur ausgelesen. Dies ist nur bei Bildformaten möglich, welche einen Alphakanal unterstützen. \abversion{2.8.3}
 \item [Transparenz aus Alphakanal - nur sichtbar/unsichtbar] Die Transparenz wird wie bei der vorigen Option aus dem Alphakanal ausgelesen. Es werden jedoch keine beliebigen Transparenzwerte unterstützt, sondern nur eine Unterscheidung zwischen sichtbaren und unsichtbaren  Pixel vorgenommen. Wenn möglich sollte diese Option aus Performancegründen der anderen Alphakanal-Option vorgezogen werden. \abversion{2.8.3}
 \end{description}
