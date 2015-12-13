@@ -1,12 +1,18 @@
+Ratgeber zum Umgang mit überschriebenen Dateien
+-------------
 # Worum geht es überhaupt?
-Durch die offene Struktur ist in Loksim ist die Verwendung von Objekten, Texturen, Wetterdateien, etc von anderen Autoren sehr einfach möglich. Auch sind die Lizenzbedingungen der meisten Addons dafür ausgelegt, dass soetwas möglich ist. Durch diese Offenheit ergibt sich jedoch das Problem, dass fremde Dateien sehr einfach verändert und damit bei der Package Installation auch überschrieben werden können. Dieser kurze Ratgeber soll einen Leitfaden für Addon-Autoren und Betatester bieten, um soetwas verhindern und erkennen zu können. Er zeigt auch, wie die Erstellung von **sauberen Packages** möglich ist.
+Durch die offene Struktur ist in Loksim ist die Verwendung von Objekten, Texturen, Wetterdateien, etc von anderen Autoren sehr einfach möglich. Auch sind die Lizenzbedingungen der meisten Addons dafür ausgelegt, dass soetwas auch rechtlich in Ordnung ist. Durch diese Offenheit ergibt sich jedoch das Problem, dass fremde Dateien sehr einfach verändert und damit bei der Package Installation auch überschrieben werden können. Dieser kurze Ratgeber soll einen Leitfaden für Addon-Autoren und Betatester bieten, um soetwas verhindern und erkennen zu können. Er zeigt auch, wie die Erstellung von **sauberen Packages** möglich ist.
 > **Wichtiger Hinweis:**
-> In diesem Ratgeber geht es nur um die **technische** Seite bzgl. überschreiben von Dateien. Das Verwenden bzw. Abändern von fremden Dateien kann unter das **Urheberrecht** fallen. Im Großen und Ganzen sind die Loksim-Addons unter einer diesbezüglich recht offenen Lizenz verfügbar. Jedoch kann hier keine allgemein gültige Aussage getroffen werden.
+> In diesem Ratgeber geht es nur um die **technische** Seite bzgl. dem Überschreiben von Dateien. Das Verwenden bzw. Abändern von fremden Dateien kann unter das **Urheberrecht** fallen. Im Großen und Ganzen sind die Loksim-Addons unter einer diesbezüglich recht offenen Lizenz verfügbar. Jedoch kann hier keine allgemein gültige Aussage getroffen werden.
 > **Jeder Addon Autor ist selbst dafür verwantwortlich, etwaige Urheberrechtsfragen mit dem Ursprungsautor zu klären.**
 
-Es gibt Addon-Autoren die auf das Thema Überschreiben von Dateien sehr sensibel reagieren und welche die darauf so gut wie überhaupt nicht achten. Fakt ist, dass das Packagekonzept von Loksim nur funktionieren kann, wenn nicht wahllos (fremde) Dateien überschrieben werden. Oftmals hat das Überschreiben von Dateien keine sichtbaren Auswirkungen (da zB die Datei nur neu abgespeichert aber nicht tatsächlich verändert wurde). Jedoch ist es dann sehr schwierig Änderungen zu erkennen, die tasächlich Auswirkungen haben. Eine 100%ige Lösung wird es für diese Problematik nicht geben können, da es gewisse Altlasten gibt. Dieser Ratgeber soll jedoch zeigen, dass es mit erträglichem Aufwand für jedermann möglich ist, das Überschreiben von fremden Dateien fast immer zu verhindern.
+Es gibt Addon-Autoren die auf das Thema Überschreiben von Dateien sehr sensibel reagieren und welche die darauf so gut wie überhaupt nicht achten. Fakt ist, dass das Packagekonzept von Loksim nur funktionieren kann, wenn nicht wahllos (fremde) Dateien überschrieben werden. Oftmals hat das Überschreiben von Dateien keine sichtbaren Auswirkungen (da zB die Datei nur neu abgespeichert aber nicht tatsächlich verändert wurde). Jedoch ist es dann sehr schwierig Änderungen zu erkennen, die tasächlich Auswirkungen haben. Eine 100%ige Lösung wird es für diese Problematik nicht geben können, da es gewisse Altlasten gibt. Außerdem soll das offene Package-Konzept von Loksim nicht aufgegeben werden. Dieser Ratgeber soll jedoch zeigen, dass es mit erträglichem Aufwand für jedermann möglich ist, das Überschreiben von fremden Dateien fast immer zu verhindern.
 
 # Saubere Packages
+Im Rahmen des Ratgebers ist öfters von **sauberen Packages** die Rede. Darunter verstehen wir Packages bei deren Installation keine fremden Dateien überschrieben werden. Verwendet man für die Erstellung von Addons nur Dateien aus sauberen Packages und überschreibt selbst keine fremden Dateien, ist man auf der sicheren Seite.
+
+- Packages von der Loksim-Homepage
+- **TODO** Sonstige sauberes Package (Link)
 
 # Empfohlene Vorgehensweise für Addon-Bauer
 ## Verzeichnisstruktur
@@ -15,10 +21,7 @@ Addon-Autoren sollten zwei Loksim Datenverzeichnisse verwenden: Ein **Arbeitsver
 Im Arbeitsverzeichnis bearbeitet man seine Addons und kann bzgl. überschriebenen Dateien etwas (aber nicht komplett) unachtsamer sein. Installiert man ein sauberes Package, lässt man jedenfalls das Überschreiben von Dateien zu. Bei nicht veröffentlichten Addons achtet man verdammt genau was überschrieben wird. Wo man sich nicht sicher ist lässt man das Überschreiben nicht zu und fragt im Forum oder beim Package-Autor nach. Für veröffentlichte sonstige Addons wählt man einen Mittelweg, passt bzgl. überschriebenen Dateien auf und geht meist auf Nummer sicher. Da das nicht immer ganz leicht zu entscheiden ist, kann man es aber riskieren, dass hier ab und zu eine Datei überschrieben wird, die eigentlich nicht überschrieben werden sollte.
 
 ### Sauberes Verzeichnis
-Neben dem Arbeitsverzeichnis baut man sich auch ein sauberes Verzeichnis 
-> **TODO** Beschreibung Erstellen sauberes Verzeichnis
-
-wie im Eingangspost beschrieben und hält dieses möglichst aktuell (neue Addons die als "sauber" deklariert werden installieren). Hier kann man prinzipiell das Überschreiben von Dateien immer zulassen, jedoch hält man trotzdem die Augen offen und meldet "verdächtiges" Überschreiben im Forum und/oder dem Package-Autor. Schließlich ist niemand unfehlbar und es kann und wird immer wieder etwas durchrutschen das nicht so sein sollte.
+Neben dem Arbeitsverzeichnis baut man sich auch ein sauberes Verzeichnis. In diesem installiert man möglichst alle sauberen Packages und hält dieses möglichst aktuell (neue Addons die als "sauber" deklariert werden installieren). Beim Installieren von sauberen Packages kann man prinzipiell das Überschreiben von Dateien immer zulassen, jedoch hält man trotzdem die Augen offen und meldet "verdächtiges" Überschreiben im Forum und/oder dem Package-Autor. Schließlich ist niemand unfehlbar und es kann und wird immer wieder etwas durchrutschen das nicht so sein sollte.
 
 ## Erstellen eines Package
 Geht es nun ans Erstellen eines Package erstellt man das Package ganz normal aus dem Arbeitsverzeichnis. Anschließend **versucht** man es im sauberen Verzeichnis zu erstellen (Option **Vor überschreiben immer nachfragen**) und schaut sich an welche Dateien überschrieben werden würden. Die Installation wird dann immer **abgebrochen**! Nun muss man alle Dateien die fälschlicherweise überschrieben werden korrigieren. Dafür gibt es je nachdem wie schlimm es ist drei Möglichkeiten:
@@ -42,4 +45,7 @@ Der PackageManager besitzt - wenn man die erweiterten Funktionen in den Optionen
 Am besten dann einfach ein Package suchen wo die Datei vorkommt und die Datei händisch herauskopieren. Die Dateiabhängigkeiten anzeigen Funktion listet für diesen Fall meist zumindest ein Package auf wo die Datei vorkommt, ansonsten muss man bei Kollegen nachfragen wo man diese Datei im Originalzustand herbekommt
 
 ## Inwiefern ist das Überschreiben von eigenen Dateien problematisch
-**TODO**
+Prinzpiell ist es kein Problem, wenn man nach der Veröffentlíchung eines Addons bei der nächsten Version eigene Dateien ändert und damit überschreibt. Da jedoch andere Autoren diese Dateien bereits in anderen Addons verwenden könnten, sollten vor der Änderung von bereits veröffentlichten Dateien ein paar Überlegungen gemacht werden:
+- Fahrpläne, Kursbuchstrecken, Strecken und Führerstände können problemlos geändert werden. Diese können nicht sinnvoll in Packages von Dritten verwendet werden
+- In der Simulation nicht sichtbare Änderungen (meist Verbesserungen) sind auch kein Problem. Beispielsweise wenn Texturen verkleinert werden oder Fehler in Objekten behoben werden (ungültige Flächen, zu viele Punkte, etc)
+- Ändert man eine allgemein nutzbare Datei, wie zB ein Objekt Baum.l3dobj, in einer Art und Weise sodass sie nachher komplett anders aussieht, solle man das Objekt nicht direkt ändern, sondern eine zweite Version des Objekts anlegen.
