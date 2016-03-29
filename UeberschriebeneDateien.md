@@ -20,6 +20,7 @@ Im Arbeitsverzeichnis bearbeitet man seine Addons und kann bzgl. überschriebene
 
 ### Sauberes Verzeichnis
 Neben dem Arbeitsverzeichnis baut man sich auch ein sauberes Verzeichnis. In diesem installiert man möglichst alle sauberen Packages und hält dieses möglichst aktuell (neue Addons die als "sauber" deklariert werden installieren). Beim Installieren von sauberen Packages kann man prinzipiell das Überschreiben von Dateien immer zulassen, jedoch hält man trotzdem die Augen offen und meldet "verdächtiges" Überschreiben im Forum und/oder dem Package-Autor. Schließlich ist niemand unfehlbar und es kann und wird immer wieder etwas durchrutschen das nicht so sein sollte.
+> Es ist kaum möglich tatsächlich **alle** Packages von der Loksim Homepage zu installieren. Wir empfehlen jedoch zumindest einen Großteil der verfügbaren Strecken zu installieren und die neueren Objekte. Sehr alte Packages müssen nicht unbedingt installiert werden.
 
 ## Erstellen eines Package
 Geht es nun ans Erstellen eines Package erstellt man das Package ganz normal aus dem Arbeitsverzeichnis. Anschließend **versucht** man es im sauberen Verzeichnis zu erstellen (Option **Vor überschreiben immer nachfragen**) und schaut sich an welche Dateien überschrieben werden würden. Die Installation wird dann immer **abgebrochen**! Nun muss man alle Dateien die fälschlicherweise überschrieben werden korrigieren. Dafür gibt es je nachdem wie schlimm es ist drei Möglichkeiten:
