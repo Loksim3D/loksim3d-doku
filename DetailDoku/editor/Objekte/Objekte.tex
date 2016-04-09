@@ -21,15 +21,19 @@ Objekte (.l3dobj) sind das Grundgerüst für die 3D-Welt. Objekte bestehen aus P
 \subsection{Punkte}
 Jeder Punkt hat eine bestimmte Position im Raum und kann einen Normalenvektor enthalten.
 
-\subsection{Flächen}\abversion{2.9}
+\subsection{Flächen}
 \label{sec:editor-obj-l3dobj-flaeche}
-Flächen bestehen aus drei oder mehr Punkten in \emph{einer Ebene}. Bei der Definition einer Fläche dürfen keine Löcher entstehen. Mit eine Rechtsklick auf eine Fläche kann automatisch die Rückseite zu der gewählten Fläche eingefügt werden.
+Flächen bestehen aus drei oder mehr Punkten in \emph{einer Ebene}. Bei der Definition einer Fläche dürfen keine Löcher entstehen. Mit eine Rechtsklick auf eine Fläche kann automatisch die Rückseite zu der gewählten Fläche eingefügt werden.\abversion{2.9}
+
+Fehler (nicht-planar, zu wenige Punkte, ungültige oder doppelte Koordinate) bei der Fläche werden beim Editieren der Fläche angezeigt.\abversion{2.9.3} Diese Meldungen sollten beim Bau neuer Objekte und bei der Überarbeitung bestehender Objekte unbedingt beachtet werden. Fehlerhaft definierte Flächen werden ''so gut wie möglich'' dargestellt. Das Ergebnis entspricht dabei nicht immmer den Erwartungen und kann von Version zu Version unterschiedlich sein. Diese Fehler werden auch in die Logdateien eingetragen. Somit ist es beispielsweise möglich, eine gesamte Strecke nach solch fehlerhaften Objekten abzusuchen.
 
 \subsection{Normalenvektoren}\abversion{2.9}
 \label{sec:editor-obj-l3dobj-normalen}
 Normalenvektoren werden zur Beleuchtung von Objekten verwendet. Bei ''eckigen Oberflächen'' sollten die Normalenvektoren immer \emph{senkrecht} auf die Fläche stehen. Bei ''runden Oberflächen'' kann durch die richtige Wahl der Normalenvektoren der Eindruck der runden Oberfläche verbessert werden. Diese Anleitung kann keine genaue Einführung in Normalenvektoren geben, erfahrene Objektbauer können aber an vielen Stellen im Internet genauere Details dazu finden. Normalenvektoren sind kein Konzept des Loksims, sondern werden  generell in der 3D-Modellierung und -Darstellung genutzt.
 
-Da Loksim bisher recht gut mit komplett falsch gesetzten Normalenvektoren umgegangen ist, hat sich beim Loksim-Objektbau eine gewisse Schlampigkeit bzgl. Normalenvektoren entwickelt. Ab Version 2.9 gibt es deshalb eine gravierende Änderung: Standardmäßig wird bei Objekten die Option \emph{Normalenvektor pro Fläche} gesetzt. Wird diese Option verwendet, kann es keine unterschiedlichen Normalenvektoren pro Fläche geben. Außerdem steht über das Menü - Bearbeiten die Funktion \emph{Normalenvektoren automatisch berechnen} zur Verfügung. Diese erzeugt Normalenvektoren die senkrecht auf die jeweilige Fläche stehen. Für die meisten Objekte sollte diese Option ausreichen. Für runde Objekte muss diese Einstellung jedoch deaktiviert werden und die Normalenvektoren wie bisher pro Punkt definiert werden.
+Da Loksim bisher recht gut mit komplett falsch gesetzten Normalenvektoren umgegangen ist, hat sich beim Loksim-Objektbau eine gewisse Schlampigkeit bzgl. Normalenvektoren entwickelt. Ab Version 2.9 gibt es deshalb eine gravierende Änderung: Standardmäßig wird bei Objekten die Option \emph{Normalenvektor pro Fläche} gesetzt. Wird diese Option verwendet, kann es keine unterschiedlichen Normalenvektoren pro Fläche geben. Außerdem steht über das Menü - Bearbeiten die Funktion \emph{Normalenvektoren automatisch berechnen (Standard)} zur Verfügung. Diese erzeugt Normalenvektoren die senkrecht auf die jeweilige Fläche stehen. Für die meisten Objekte sollte diese Option ausreichen. 
+
+Für runde Objekte muss diese Einstellung jedoch deaktiviert werden und die Normalenvektoren wie bisher pro Punkt definiert werden. Die Normalenvektoren für runde Objekte können mittels der Funktion Bearbeiten - \emph{Normalenvektoren automatisch berechnen (rundes Objekt)} automatisch berechent werden.\abversion{2.9.3}
 
 Da Loksim in Zukunft ein verbessertes Beleuchtungssystem bekommen wird, gibt es folgende Regelung: Bei Objekten die mit Version 2.9 oder neuer erstellt oder abgeändert wurden wird angenommen, dass sie mit korrekten Normalenvektoren ausgestattet sind. Ältere Objekte werden vorraussichtlich anders verarbeitet werden, sodass falsche Normalenvektoren nicht so sehr ins Gewicht fallen.
 
