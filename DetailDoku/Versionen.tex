@@ -1,37 +1,5 @@
-\section{Versionshistorie}
-\subsection{Version 2.9.3}
-\subsubsection{Neue Funktionen}
-\begin{itemize}
-\item Neue Optionen für \hyperref[sec:editor-gleise]{Gleise}: Keine 3D-Darstellung, senkrechte Normalenvektoren und neue Transparenzoptionen
-\item \hyperref[sec:sim-optionen-special]{Fahrplanabhängige Sichtweite}
-\item Interne Umstelllung der Gleiserzeugung
-\item Editor: Objekteditor zeigt Fehler bei Flächen an
-\item Editor: Textur im Fonteditor zoombar
-\item Objekteditor: \hyperref[sec:editor-obj-l3dobj-normalen]{Normalenvektoren für runde Objekte berechnen}
-\end{itemize}
-\subsubsection{Kleinere Änderungen}
-\begin{itemize}
-\item FahrplanDaten::LastHalt auch in Sichtbarkeitsausdruecken verfügbar
-\item \hyperref[sec:sim-optionen-paths]{paths.ini} kann nun auch <Registry> anstatt Pfad enthalten
-\item Editor: Bessere Kennzeichnung von fehlerhaften Eingaben in einigen Dialogen
-\item Editor: LastWork Ordner behält bis zu 500 Dateien auf
-\item Streckeneditor: Löschen aller Objekte eines Gleis auf einmal möglich
-\item Strecken- und KBS-Editor: Anzeige Positionsinformationen über Info-Button
-\end{itemize}
-\subsubsection{Fehlerkorrekturen}
-\begin{itemize}
-\item Absturz beim Laden von Objekten die Punkte oder Linien enthalten aus externen Formaten behoben
-\item Abstürze bei .l3dobj Objekten mit nicht-planaren Flächen behoben
-\item Verschwinden von Objekten in bestimmten Situationen behoben
-\item Zulassen von sehr kleiner Streckenrotation
-\item Simulator: Bei ausgeblendeten Kennziffern wird ein Limit am Hauptsignal dennoch aktiv
-\item Simulator: Probleme bei LZB-Ende behoben
-\item Strecken- und KBS-Editor: Absturz bei bestimmten GPAs behoben
-\item Streckeneditor: Bugfix Eigenschaftsname mit Sonderzeichen (Eigenschaften Gruppenobjekte)
-\end{itemize}
-
-\subsection{Version 2.9.2}\hfill 11. August 2015
-\subsubsection{Neue Funktionen}
+\section{Version 2.9.2}\hfill 11. August 2015
+\subsection{Neue Funktionen}
 \begin{itemize}
 \item Zufallsdrehung bei Objekten auf Strecke möglich
 \item \hyperref[sec.editor.obj.logischeausdruecke]{Zeichenketten in logischen Ausdrücken}
@@ -39,7 +7,7 @@
 \item Objekteditor: Neuer Dialog für Punkte zu Fläche hinzufügen
 \end{itemize}
 
-\subsubsection{Kleinere Änderungen}
+\subsection{Kleinere Änderungen}
 \begin{itemize}
 \item Indusi-Einstellung PZ80R wird automatisch auf PZB90 PZ80R umgestellt
 \item Kommandozeilen-Argument /renderstats:1 zeigt Anzahl von DrawCalls und Triangles
@@ -56,7 +24,7 @@
 \end{itemize}
 
 
-\subsubsection{Fehlerkorrekturen}
+\subsection{Fehlerkorrekturen}
 \begin{itemize}
 \item Bugfixes bei Sichtbarkeitssteuerung
 \item Bugfix Rotation Streckenobjekte
@@ -68,14 +36,14 @@
 \item Streckeneditor: BÜ bei welchem der Name Teil des Namens eines andere BÜs ist, kann nun auch im GUI angelegt werden
 \end{itemize}
 
-\subsection{Version 2.9.1}\hfill 11. Jänner 2015
+\section{Version 2.9.1}\hfill 11. Jänner 2015
 
-\subsubsection{Neue Funktionen}
+\subsection{Neue Funktionen}
 \begin{itemize}
 \item Streckeneditor: (Landschafts)objekte können nach Position sortiert werden
 \end{itemize}
 
-\subsubsection{Kleinere Änderungen}
+\subsection{Kleinere Änderungen}
 \begin{itemize}
 \item Optimierung Option ''Alle Texturen beim Start laden''
 \item Vergrößerung von Eingabefeldern im Editor: Neu-Dialog, Rail - Höhenwerte der Bettung, Strecke - Unterbrechung der Höhenlinie
@@ -90,7 +58,7 @@
 \item Kursbucheditor: Standardauswahl bei neuer Verbindung im KBS-Editor optimiert
 \end{itemize}
 
-\subsubsection{Fehlerkorrekturen}
+\subsection{Fehlerkorrekturen}
 \begin{itemize}
 \item ''Höhe über Landschaft'' bei global gesetzter Verschiebung in Y-Richtung
 \item Gleichzeitiger Einsatz von ''Objekt mitdrehen'' und ''Zoomfaktor''
@@ -119,9 +87,9 @@
 \end{itemize}
 
 
-\subsection{Version 2.9}\hfill 9. November 2014
+\section{Version 2.9}\hfill 9. November 2014
 
-\subsubsection{Neue Funktionen}
+\subsection{Neue Funktionen}
 \begin{itemize}
 \item \hyperref[sec:editor-obj-grp]{Gruppenobjekte können selbst Gruppenobjekte enthalten}
 \item \hyperref[sec:editor-obj-externe]{Unterstützung externer 3D-Objektmodellformate}
@@ -137,7 +105,7 @@
 \item \hyperref[sec:editor-obj-externe-konvertieren]{Konvertieren externer 3D-Objektmodellformate ins Loksim-Format}
 \end{itemize}
 
-\subsubsection{Kleinere Änderungen}
+\subsection{Kleinere Änderungen}
 \begin{itemize}
 \item Neue Systemvoraussetzung Windows Vista SP2 oder neuer 
 \item \hyperref[sec:editor-obj-sichtbarkeitssteuerung-streig]{Möglichkeit Streckenmeter als Objekteigenschaft zu benutzen}
@@ -154,7 +122,7 @@
 \item Neue Option \hyperref[sec.sim.optionen.darstellung]{Windows 8 Vollbildmodus}
 \end{itemize}
 
-\subsubsection{Fehlerkorrekturen}
+\subsection{Fehlerkorrekturen}
 \begin{itemize}
 \item AFB ohne LZB-Führung nur bis 160 stellbar
 \item Korrektur falsche Befreiungsmöglichkeit PZB90 1000Hz Beeinflussung
@@ -167,9 +135,9 @@
 \item Fehler beim Abspeichern benutzerdefinierter Charakteristik der Fahrstufen korrigiert
 \end{itemize}
 
-\subsection{Version 2.8.3}\hfill 2. April 2014
+\section{Version 2.8.3}\hfill 2. April 2014
 
-\subsubsection{Neue Funktionen}
+\subsection{Neue Funktionen}
 \begin{itemize}
 \item \hyperref[sec:editor-obj-transparenz]{Transparenz aus Alphakanal}
 \item \hyperref[sec.sim.steuerung.diverses.wegmessung]{Zuglängenzähler}
@@ -179,7 +147,7 @@
 \item \hyperref[sect.editor.lok.fst]{Nachtführerstandsbild}
 \end{itemize}
 
-\subsubsection{Kleinere Änderungen}
+\subsection{Kleinere Änderungen}
 \begin{itemize}
 \item Störschalter für PZB90
 \item Verbesserung Verhalten PZB90 während LZB-Betrieb
@@ -192,7 +160,7 @@
 \item Unverriegelte Türen öffnen bei jedem Halt (auch auf freier Strecke) automatisch 
 \end{itemize}
 
-\subsubsection{Fehlerkorrekturen}
+\subsection{Fehlerkorrekturen}
 \begin{itemize}
 \item Sound Ende 500Hz Überwachung
 \item Fehlerkorrektur bei Überlagerung zweier 1000Hz Beeinflussungen (PZB90)
@@ -200,7 +168,7 @@
 \item Problem bei gleisabhängiger Sichtbarkeitssteuerung behoben
 \end{itemize}
 
-\subsection{Version 2.8.2a}\hfill 26. Juli 2013
+\section{Version 2.8.2a}\hfill 26. Juli 2013
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -210,7 +178,7 @@
   Bedingtes Abspielen von Streckensounds
 \end{itemize}
 
-\subsection{Version 2.8.2}\hfill 18. Juli 2013
+\section{Version 2.8.2}\hfill 18. Juli 2013
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt

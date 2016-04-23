@@ -1,0 +1,31 @@
+\section{Version 2.9.3}
+\subsection{Neue Funktionen}
+\begin{itemize}
+\item Neue Optionen für \hyperref[sec:editor-gleise]{Gleise}: Keine 3D-Darstellung, senkrechte Normalenvektoren und neue Transparenzoptionen
+\item \hyperref[sec:sim-optionen-special]{Fahrplanabhängige Sichtweite}
+\item Editor: Objekteditor zeigt Fehler bei Flächen an
+\item Editor: \hyperref[sec:sec:editor-lastwork]{Integration Restartmanager}
+\item Fonteditor: Textur zoombar
+\item Objekteditor: \hyperref[sec:editor-obj-l3dobj-normalen]{Normalenvektoren für runde Objekte berechnen}
+\end{itemize}
+\subsection{Kleinere Änderungen}
+\begin{itemize}
+\item FahrplanDaten::LastHalt auch in Sichtbarkeitsausdruecken verfügbar
+\item \hyperref[sec:sim-optionen-paths]{paths.ini} kann nun auch <Registry> anstatt Pfad enthalten
+\item Interne Umstelllung der Gleiserzeugung
+\item Editor: Bessere Kennzeichnung von fehlerhaften Eingaben in einigen Dialogen
+\item Editor: \hyperref[sec:sec:editor-lastwork]{LastWork Ordner} behält bis zu 500 Dateien auf und sichert auch nichtgespeicherte Dateien
+\item Streckeneditor: Löschen aller Objekte eines Gleis auf einmal möglich
+\item Strecken- und KBS-Editor: Anzeige Positionsinformationen über Info-Button
+\end{itemize}
+\subsection{Fehlerkorrekturen}
+\begin{itemize}
+\item Absturz beim Laden von Objekten die Punkte oder Linien enthalten aus externen Formaten behoben
+\item Abstürze bei .l3dobj Objekten mit nicht-planaren Flächen behoben
+\item Verschwinden von Objekten in bestimmten Situationen behoben
+\item Zulassen von sehr kleiner Streckenrotation
+\item Simulator: Bei ausgeblendeten Kennziffern wird ein Limit am Hauptsignal dennoch aktiv
+\item Simulator: Probleme bei LZB-Ende behoben
+\item Strecken- und KBS-Editor: Absturz bei bestimmten GPAs behoben
+\item Streckeneditor: Bugfix Eigenschaftsname mit Sonderzeichen (Eigenschaften Gruppenobjekte)
+\end{itemize}
