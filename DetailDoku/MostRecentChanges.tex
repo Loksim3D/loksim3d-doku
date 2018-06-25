@@ -1,14 +1,27 @@
-\section{Version 2.9.4}\
+\section{Version 2.9.4}
 \subsection{Neue Funktionen}
 \begin{itemize}
+\item Erweiterung der Joystick-Schnittstelle. Es sind mehr als ein Joystick möglich
+\item Joysticksteuerung (Buttons) erweitert
+\item Erweiterung der TCP-Schnittstelle, Zustand der LM55/70/85 wird gesondert übertragen
 \end{itemize}
 
 
 \subsection{Kleinere Änderungen}
 \begin{itemize}
+\item LM Befehl40 im TCP-Protokoll nachgerüstet
+\item PZB90 Restriktiver Modus wird nun korrekt an TCP, OLE und Fahrtenschreiber gemeldet
+\item Weichendarstellung verbessert
+\item Abfrage der aktuellsten Loksim-Version über HTTPS anstatt HTTP
+\item Objekteditor: Textkoordinaten für einen Punkt auf einer Fläche für alle Flächen verwenden
+\item Objekteditor: Beim Drücken von <ALT> werden alle Texturkoordinaten auf einmal verschoben
 \end{itemize}
 
 
 \subsection{Fehlerkorrekturen}
 \begin{itemize}
+\item Kleiner Bugfix bei der DKW-Darstellung
+\item Bugfix Package Erstellen: Abwählen von Dateien funktioniert wieder
+\item Bugfix PZB90: LM85/70/55 leuchtet waehrend restriktiver 1000Hz Beeinflussung nicht mehr
+\item Korrektur der Fahrplandarstellung
 \end{itemize}
