@@ -22,3 +22,35 @@ Es wird empfohlen bei neuen Versionen einer Strecke oder Führerstand die
 alten Versionen des Package in diese Package deinstallieren Liste
 hinzuzufügen. So werden beim Benutzer stets die nicht mehr benötigten
 Dateien gelöscht
+
+\subsection{l3dmeta Dateien}\abversion{2.9.6}
+\label{sec:editor.allg.packages.l3dmeta}
+Zur Definition von Eigenschaften von Dateien die nicht im Loksim XML-Format abgespeichert werden (wie zum Beispiel Texturen oder 3D-Objekte in externen Formaten) können
+.l3dmeta Dateien angelegt werden, die beim Erzeugen von Packages ausgewertet werden.
+
+Beispiel: In einem Package für eine Loksim-Strecke wird das Objekt 
+\textbackslash Objekte\textbackslash\linebreak[0]Bahnhof\textbackslash MaxM\textbackslash BhfX.dae
+ verwendet. 
+Der Autor \emph{Max Mustermann} möchte 
+explizit ausdrücken, dass dieses Objekt von ihm erstellt wurde und unter der Lizenz \emph{Loksim-AddonLizenz-2019-08} steht.
+
+Um dies zu erreichen, ist es möglich eine Datei 
+\textbackslash Objekte\textbackslash\linebreak[0]Bahnhof\textbackslash\linebreak[0]MaxM\textbackslash BhfX.dae.l3dmeta 
+mit folgendem Inhalt zu erstellen:
+
+\begin{lstlisting}[language=XML]
+<?xml version="1.0"?>
+<METADATA>
+    <Props FileAuthor="Max Mustermann" 
+    FileLicense="\Lizenzen\Loksim-AddonLizenz-2019-08.pdf" />
+</METADATA>
+\end{lstlisting}
+
+Wird nun ein Package erzeugt welches die Datei 
+\textbackslash Objekte\textbackslash\linebreak[0]Bahnhof\textbackslash\linebreak[0]MaxM\textbackslash BhfX.dae, 
+wird automatisch auch die Datei 
+\textbackslash Objekte\textbackslash\linebreak[0]Bahnhof\textbackslash\linebreak[0]MaxM\textbackslash\linebreak[0]BhfX.dae.l3dmeta
+und 
+\textbackslash Lizenzen\textbackslash\linebreak[0]Loksim-AddonLizenz-2019-08.pdf 
+ins Package mit aufgenommen. Somit ist stets nachvollziehbar, unter welcher Lizenz das Objekt steht
+und wer der Autor dieser Datei ist.
