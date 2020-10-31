@@ -1,5 +1,7 @@
 # Dokumentation Loksim3D
 
+![CI](https://github.com/Loksim3D/loksim3d-doku/workflows/CI/badge.svg)
+
 This repository contains the source of Loksim3D's (https://www.loksim3.de) documentation that is created using LaTex (DetailDoku). Addtionally it also contains the documentation written in Microsoft Word (GesamtDoku). Since the Loksim community is mainly based in German-speaking countries, the following description is given in German. If you are interested in this project and need some information in English, feel free to contact us!
 
 ---
