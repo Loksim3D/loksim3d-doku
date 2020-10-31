@@ -21,3 +21,8 @@ jobs:
         with:
           root_file: LoksimDetailDoku.tex
           working_directory: DetailDoku
+      - name: Archive LoksimDetailDokup.pdf artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: DetailDoku/LoksimDetailDoku.pdf
