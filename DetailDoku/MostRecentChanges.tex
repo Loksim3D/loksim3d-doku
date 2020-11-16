@@ -1,30 +1,25 @@
-\section{Version 2.10}
+\section{Version 2.10.1}
 \subsection{Neue Funktionen}
 \begin{itemize}
-    \item Loksim: RailDriver Integration
-    \item LoksimEdit: Überarbeitung Führerstandseditor
-    \item LoksimEdit: ''Grab Geste'' fuer KBS-, Strecke-, Objektbitmap- und Führerstandsbitmap-View
-    \item LoksimEdit: Letzer Zustand laden im Create Package Dialog
 \end{itemize}
 
 
 \subsection{Kleinere Änderungen}
 \begin{itemize}
-    \item Loksim: SEP um textEBuLa erweitert
-    \item Verbesserte Berechnung der Bounding Box von 3D-Fonts
-    \item LoksimEdit: 2D-View aktualisiert sich wenn Objekte geändert werden
-    \item LoksimEdit: Englische Übersetzung für (neue) Teile des LoksimEdit
-    \item LoksimEdit: Sichtwinkel bei Update in KBS-, und Strecke-View wiederherstellen
-    \item LoksimEdit: Im Führerstandeditor sind veraltete Optionen deaktiviert
-    \item PackageManager: Option Transaktionen zu deaktivieren
+    \item LoksimEdit: Horiz. Zeiger (neu) ist Standard für neue Führerstände
+    \item LoksimEdit: AFB Arten Wabco, Deuta und Wabco+Bremse als veraltet deklariert
+    \item LoksimEdit: Drag-Geste für Schiene- und FontViews
 \end{itemize}
 
 \subsection{Fehlerkorrekturen}
 \begin{itemize}
-	\item Bugfix bei der Transparenz von dae Objekten
-    \item Simulator: Bugfix bei Indusi zusätzlich: Korrektur der Berechnung der Signalposition
-    \item Simulator: Bugfix Fst-Überblendung im Stand
-    \item Simulator: Crash beim Blättern im Fahrtenschreiber
-	\item Simulator: Bugfix AFB Zielgeschwindigkeit verharrte nach LZB-Aufnahme bei 160, obwohl höhere Geschwindigkeit angewählt war.
-    \item LoksimEdit: Bugfix (Crash) Speichern von Backups wenn Pfad nicht beschreibbar
+    \item Bugfix Rotation Streckenobjekt (\href{https://www.loksimulatoren.de/forum/index.php?thread/8430-gedrehte-streckenobjekte-ab-dem-2-modul-in-der-kbs-unsichtbar/}{Link Fehlerbeschreibung})
+    \item TODO: Simulator: Doppelte Fahrplaneinträge (\href{https://www.loksimulatoren.de/forum/index.php?thread/8441-fehler-ebula-doppelte-haltepunkte-und-geschwindigkeitsanzeige/}{Link Fehlerbeschreibung})
+    \item Simulator: Fehler in der "dynamischen Bremssteuerung" gefixt. Beim Umbenennen eine Funktion nicht richtig benannt. (\href{https://www.loksimulatoren.de/forum/index.php?thread/8442-dynamische-bremse-br427-428/&postID=137094#post137094}{Link Fehlerbeschreibung})
+    \item Simulator: Bugfix Störungen von signalgedeckten BÜs (\href{https://www.loksimulatoren.de/forum/index.php?thread/5771-probleme-mit-durch-hauptsignale-%C3%BCberwachten-b%C3%BC/&postID=137100#post137100}{Link Fehlerbeschreibung})
+    \item Simulator: FahrplanDaten::NextHalt ignoriert Zugfolgestellen und Betriebshalts (\href{https://www.loksimulatoren.de/forum/index.php?thread/5768-zza-anzeigen-falsch-wenn-hp-nur-als-zugfolgestelle-gekennzeichnet-ist/}{Link Fehlerbeschreibung})
+    \item LoksimEdit: Bugfix Automatische Übernahme von Werten im Gruppenobjekteditor (\href{https://www.loksimulatoren.de/forum/index.php?thread/8262-speichern-von-%C3%A4nderungen-in-gruppenobjekten/}{Link Fehlerbeschreibung})
+    \item LoksimEdit: Bugfix Menüführung Punkte verschieben/zoomen (\href{https://www.loksimulatoren.de/forum/index.php?thread/8431-fehler-der-men%C3%BCf%C3%BChrung-beim-verschieben-zoomen-von-objekten-im-gruppenobjektedit/}{Link Fehlerbeschreibung})
+    \item LoksimEdit: Bugfix Standardeinstellungen Signale, Limits, Haltepunkte (\href{https://www.loksimulatoren.de/forum/index.php?thread/8435-standard-einstellungen-bei-signalen-werden-auch-bei-abbruch-gesetzt/}{Link Fehlerbeschreibung})
+    \item LoksimEdit: Bugfix löschen aller Gleise (\href{https://www.loksimulatoren.de/forum/index.php?thread/8434-fehler-bei-l%C3%B6schen-des-letzten-gleises-einer-strecke/}{Link Fehlerbeschreibung})
 \end{itemize}
