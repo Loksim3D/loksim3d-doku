@@ -1,21 +1,27 @@
-\section{Version 2.10.1}
+\section{Version 2.11}
+
+\subsection{Neue Funktionen}
+\begin{itemize}
+    \item BueLicht2 zur Steuerung von gelben Lichtsignalen bei Bues und Konfiguration der Dauer von BueLicht2 und BueLicht in neuem BÜ-Dialog (\href{https://www.loksimulatoren.de/forum/index.php?thread/8258-ampelsteuerung-an-bahn%C3%BCberg%C3%A4nge-mit-buelicht1-und-buelicht2/}{Link Vorschlag})
+\end{itemize}
 
 \subsection{Kleinere Änderungen}
 \begin{itemize}
-    \item LoksimEdit: Horiz. Zeiger (neu) ist Standard für neue Führerstände
-    \item LoksimEdit: AFB Arten Wabco, Deuta und Wabco+Bremse als veraltet deklariert
-    \item LoksimEdit: Drag-Geste für Schiene- und FontViews
+    \item Objekte werden nur mit BÜs am selben Gleis verknüpft (\href{https://www.loksimulatoren.de/forum/index.php?thread/5771-probleme-mit-durch-hauptsignale-%C3%BCberwachten-b%C3%BC/&postID=137100#post137100}{Link Vorschlag})
+    \item BÜs können mit BÜs am selben Gleis verknüpft werden (\href{https://www.loksimulatoren.de/forum/index.php?thread/5771-probleme-mit-durch-hauptsignale-%C3%BCberwachten-b%C3%BC/&postID=137100#post137100}{Link Vorschlag})
+    \item Refactoring 2D-Rendering (Führerstände)
+    \item SEP um einige Werte erweitert
+    \item LoksimEdit: Dialog für erweitertes BÜ-Mgmt zeigt alle BÜs der Strecke (\href{https://www.loksimulatoren.de/forum/index.php?thread/5771-probleme-mit-durch-hauptsignale-%C3%BCberwachten-b%C3%BC/&postID=137100#post137100}{Link Vorschlag})
+    \item LoksimEdit: PreviewBilder bis max 800px und verbesserte Qualität (\href{https://www.loksimulatoren.de/forum/index.php?thread/8346-qualit%C3%A4t-der-im-editor-erzeugten-vorschaubilder/}{Link Vorschlag})
+    \item LoksimEdit: markiere Transparenzoptionen als veraltet und erzeuge Logeinträge dafür
+    \item PackageManager: Loksim Version wird anhand der Version von Loksim3D.exe / LoksimEdit.exe bestimmt
 \end{itemize}
 
 \subsection{Fehlerkorrekturen}
 \begin{itemize}
-    \item Bugfix Rotation Streckenobjekt (\href{https://www.loksimulatoren.de/forum/index.php?thread/8430-gedrehte-streckenobjekte-ab-dem-2-modul-in-der-kbs-unsichtbar/}{Link Fehlerbeschreibung})
-    \item TODO: Simulator: Doppelte Fahrplaneinträge (\href{https://www.loksimulatoren.de/forum/index.php?thread/8441-fehler-ebula-doppelte-haltepunkte-und-geschwindigkeitsanzeige/}{Link Fehlerbeschreibung})
-    \item Simulator: Fehler in der "dynamischen Bremssteuerung" gefixt. Beim Umbenennen eine Funktion nicht richtig benannt. (\href{https://www.loksimulatoren.de/forum/index.php?thread/8442-dynamische-bremse-br427-428/&postID=137094#post137094}{Link Fehlerbeschreibung})
-    \item Simulator: Bugfix Störungen von signalgedeckten BÜs (\href{https://www.loksimulatoren.de/forum/index.php?thread/5771-probleme-mit-durch-hauptsignale-%C3%BCberwachten-b%C3%BC/&postID=137100#post137100}{Link Fehlerbeschreibung})
-    \item Simulator: FahrplanDaten::NextHalt ignoriert Zugfolgestellen und Betriebshalts (\href{https://www.loksimulatoren.de/forum/index.php?thread/5768-zza-anzeigen-falsch-wenn-hp-nur-als-zugfolgestelle-gekennzeichnet-ist/}{Link Fehlerbeschreibung})
-    \item LoksimEdit: Bugfix Automatische Übernahme von Werten im Gruppenobjekteditor (\href{https://www.loksimulatoren.de/forum/index.php?thread/8262-speichern-von-%C3%A4nderungen-in-gruppenobjekten/}{Link Fehlerbeschreibung})
-    \item LoksimEdit: Bugfix Menüführung Punkte verschieben/zoomen (\href{https://www.loksimulatoren.de/forum/index.php?thread/8431-fehler-der-men%C3%BCf%C3%BChrung-beim-verschieben-zoomen-von-objekten-im-gruppenobjektedit/}{Link Fehlerbeschreibung})
-    \item LoksimEdit: Bugfix Standardeinstellungen Signale, Limits, Haltepunkte (\href{https://www.loksimulatoren.de/forum/index.php?thread/8435-standard-einstellungen-bei-signalen-werden-auch-bei-abbruch-gesetzt/}{Link Fehlerbeschreibung})
-    \item LoksimEdit: Bugfix löschen aller Gleise (\href{https://www.loksimulatoren.de/forum/index.php?thread/8434-fehler-bei-l%C3%B6schen-des-letzten-gleises-einer-strecke/}{Link Fehlerbeschreibung})
+    \item Bugfix Rotation Streckenobjekt (2) (\href{https://www.loksimulatoren.de/forum/index.php?thread/8492-verschiebung-einzelner-objekte-innerhalb-gedrehter-streckenobjekte-werden-nicht/}{Link Fehlerbeschreibung})
+    \item Fix der Fahrplanerzeugung (Doppelte Fpl-Einträge, Fehlende Geschwindigkeiten)
+    \item Bugfix Graustufen PNG Textur
+    \item LoksimEdit: Bugfix Objekteditor Punktreihenfolge in Flächen Drag&Drop
+    \item LoksimEdit: Bugfix Undo-Funktion (\href{https://www.loksimulatoren.de/forum/thread/8485-lastgeregelter-motorsound/}{Link Fehlerbeschreibung})
 \end{itemize}
